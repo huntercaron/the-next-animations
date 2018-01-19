@@ -33,11 +33,13 @@ export default class IntroCSS extends React.Component {
           <Grid>
 
             <GridBlock rowStart={0} rowEnd={3} colStart={0} colEnd={4} wAdjust={-3}>
-              fuck
+              Graduate Showcase
+              of York University/Sheridan College
+              Joint Program in Design
             </GridBlock>
 
             <GridBlock rowStart={3} rowEnd={5} colStart={0} colEnd={2} wAdjust={-1}>
-              fuck
+              Any way you frame it, we’re generators and synthesizers. We invent, create, and shape the world surrounding us. Design in this way unites us as makers, but it also differentiates us through process.
             </GridBlock>
 
             <GridBlock rowStart={3} rowEnd={5} colStart={4} colEnd={6} wAdjust={5}>
