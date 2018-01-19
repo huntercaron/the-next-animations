@@ -1,15 +1,4 @@
-# Boiled
-A minimal & opinionated Gatsby boilerplate.
-
-Basic setup of Gatsby with Styled-Components, and page generation using markdown.
-
-Easily pluggable with [Netlify CMS](https://www.netlifycms.org/) if you'd like.
-
-To get your own version, click the button below.
-
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/huntercaron/boiled)
-
+# The Next Teaser Site
 
 ## Getting Started
 
@@ -41,5 +30,5 @@ If using Github pages, follow the guide [here](https://www.gatsbyjs.org/docs/dep
 * [Hyper](https://hyper.is/) \(A nicer terminal\)
 
 ## Versions
-### version 1.0.0
-Setup and examples of normal pages, and dynamic pages generated from markdown files (in src/pages/content).
+### version 0.1.0
+Basic Grid Setup

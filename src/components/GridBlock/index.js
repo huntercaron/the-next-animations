@@ -3,24 +3,21 @@ import styled from 'styled-components'
 import { grid } from '../../utils/constants.js'
 
 
-// trying to figure out a base grid block component that we can extend
+/*
+** Base GridBlock component that will figure out all sizing, theming, etc
+** Used styledcomponents extend to create other com
+*/
 
 // styled components
 const GridBlock = styled.div`
   overflow: hidden;
   min-width: 0;
   background-color: pink;
-
   position: absolute;
-  ${'' /* right: calc(${props => {
-    let distance = 0;
-    let colStart = props.colStart || grid.columns.length-1;
-    let colEnd = props.colEnd || colStart + 1;
-    for (let i = 0; i <= grid.columns.length - colEnd-1; i++) {
-      distance += grid.columnsReverse[i];
-    }
-    return distance;
-  }}% - ${props => grid.columns.length - props.colEnd - 1}px); */}
+  margin: -1px;
+
+  border: 1px solid black;
+  ${props => props.borderNo && 'border-' + props.borderNo + ': none;'}
 
   left: calc(${props => {
     let distance = 0;
@@ -31,7 +28,7 @@ const GridBlock = styled.div`
       console.log(distance);
     }
     return distance;
-  }}% - ${props => props.colStart - 1|| 0}px);
+  }}% - ${props => (props.colStart - 1 || 0)}px);
 
   width: calc(${props => {
     let width = 0;
@@ -41,7 +38,7 @@ const GridBlock = styled.div`
       width += grid.columns[i];
     }
     return width;
-  }}% + ${props => (props.colStart - props.colEnd - 1 || 0) }px);
+  }}% + ${props => props.wAdjust || 0}px);
 
   top: calc(${props => {
     let distance = 0;
@@ -61,7 +58,7 @@ const GridBlock = styled.div`
       height += grid.rows[i];
     }
     return height;
-  }}% - ${props => (props.rowEnd - props.rowStart + 1 || 0)}px);
+  }}% + ${props => -1 * (props.rowEnd - props.rowStart - 1 || 0) + (props.hAdjust || 0)}px);
 `
 
 export default GridBlock;
