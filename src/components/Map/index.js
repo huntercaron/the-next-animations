@@ -10,7 +10,7 @@ const Text = styled.p`
 `
 
 // component
-export default function ContentPreview(props) {
+export default function Map(props) {
   return (
     <Container>
       <Text>{props.text}</Text>

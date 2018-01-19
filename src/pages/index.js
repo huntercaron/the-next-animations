@@ -5,6 +5,7 @@ import GridBlock from '../components/GridBlock'
 import Statement from '../components/Statement'
 import Timer from '../components/Timer'
 import ContentPreview from '../components/ContentPreview'
+import Map from '../components/Map'
 import { P, H2, H3 } from '../components/Type'
 
 const Container = styled.div`
@@ -27,7 +28,9 @@ const FooterContainer = GridBlock.extend`
 `
 
 const EmailContainer = styled.div`
-
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid black;
 `
 
 // page component
@@ -63,6 +66,8 @@ export default class IntroCSS extends React.Component {
             <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
             <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
+              <Map />
+
               <EmailContainer>
 
               </EmailContainer>
