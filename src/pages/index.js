@@ -25,11 +25,12 @@ const InnerContainer = styled.div`
 const FooterContainer = GridBlock.extend`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `
 
 const EmailContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 60px;
   border-top: 1px solid black;
 `
 

@@ -21,6 +21,7 @@ const P = styled.p`
   margin: 0;
   font-size: 1.2rem;
   line-height: 1.3;
+  margin-top: -3px;
 `
 
 // component
