@@ -62,7 +62,7 @@ export default class IntroCSS extends React.Component {
               colStart={4}
               colEnd={6}
               wAdjust={5}
-              countdownDate = "Jan 22, 2018 12:00:00" />
+              countdownDate = "2018-01-22 12:00" />
 
             <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 

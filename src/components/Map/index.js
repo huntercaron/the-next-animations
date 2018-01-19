@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, {Marker} from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 // styled components
@@ -34,9 +34,15 @@ export default class Map extends React.Component {
     return (
       <Container>
         <ReactMapGL
-        {...this.state.viewport}
-        onViewportChange={(viewport) => this.setState({viewport})}
-        />
+          {...this.state.viewport}
+          onViewportChange={(viewport) => {
+            viewport.mapStyle = 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3';
+            this.setState({viewport});
+          }}>
+          <Marker latitude={43.642690} longitude={-79.427036} offsetLeft={-20} offsetTop={-10}>
+            <div>GLADSTONE</div>
+          </Marker>
+        </ReactMapGL>
       </Container>
     )
   }
