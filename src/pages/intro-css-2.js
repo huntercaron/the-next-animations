@@ -82,7 +82,7 @@ export default class IntroCSS extends React.Component {
             </GridBlock>
 
             <GridBlock
-              rowStart={1}
+              rowStart={0}
               rowEnd={3}
               colStart={4}
               colEnd={5}

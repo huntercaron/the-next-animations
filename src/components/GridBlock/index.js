@@ -24,14 +24,14 @@ const GridBlock = styled.div`
 
   left: calc(${props => {
     let distance = 0;
-    let colStart = props.colstart || 0;
+    let colStart = props.colStart || 0;
     let colEnd = props.colEnd || colStart;
     for (let i = 0; i < colStart; i++) {
       distance += grid.columns[i];
       console.log(distance);
     }
     return distance;
-  }}% + ${props => props.colStart || 0}px);
+  }}% - ${props => props.colStart - 1|| 0}px);
 
   width: calc(${props => {
     let width = 0;
