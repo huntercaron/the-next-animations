@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
-const columns = [37,24,16,11,7,5];
-const rows = [3,5,7,10,16,24,36];
+import { grid } from '../../utils/constants.js'
 
 // styled components
 const Container = styled.div`
@@ -43,7 +41,7 @@ const Cell = styled.div`
 function Cells() {
   let cellColumns = [];
 
-  for (let col of columns) {
+  for (let col of grid.columns) {
     cellColumns.push(
       <Cell key={col} width={col}/>
     )
@@ -51,7 +49,7 @@ function Cells() {
 
   return (
     <CellsContainer>
-      {rows.map( (row, i) => (
+      {grid.rows.map( (row, i) => (
         <CellRow key={i} height={row}>
           {cellColumns}
         </CellRow>

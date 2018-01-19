@@ -48,9 +48,7 @@ export default function IndexPage() {
   return (
     <Container>
       <Subtitle>Testing Animations for the next:</Subtitle>
-      <PageLink to="/intro-css">intro using css</PageLink>
       <PageLink to="/intro-css-2">intro using css (2)</PageLink>
-      <PageLink to="/intro-gsap">intro using gsap</PageLink>
     </Container>
   )
 }

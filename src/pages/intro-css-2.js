@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Grid from '../components/ManualGrid'
+import Grid from '../components/Grid'
+import GridBlock from '../components/GridBlock'
 
 const Container = styled.div`
   padding: 0.75rem;
@@ -71,7 +72,23 @@ export default class IntroCSS extends React.Component {
           <Statement/>
 
           <Grid>
+            <GridBlock
+              rowStart={4}
+              rowEnd={5}
+              colStart={2}
+              colEnd={3}
+              >
+              fuck
+            </GridBlock>
 
+            <GridBlock
+              rowStart={1}
+              rowEnd={3}
+              colStart={4}
+              colEnd={5}
+              >
+              fuck
+            </GridBlock>
           </Grid>
 
 
