@@ -16,10 +16,6 @@ const Text = styled.p`
 
 `
 
-
-
-
-
 // Cells Stuff
 const CellsContainer = styled.div`
   height: 100%;
@@ -31,42 +27,39 @@ const CellRow = styled.div`
   width: 100%;
   display: flex;
   border-bottom: 1px solid black;
+  margin-top: -1px;
 `
 
 const Cell = styled.div`
   width: ${props => props.width}%;
   height: 100%;
   border-left: 1px solid black;
+  margin-right: -1px;
 `
 
 function Cells() {
   let cellColumns = [];
-  let cellRows = [];
 
   for (let col of columns) {
     cellColumns.push(
-      <Cell width={col}/>
-    )
-  }
-
-  for (let row of rows) {
-    cellRows.push(
-      <CellRow height={row}>
-        {cellColumns}
-      </CellRow>
+      <Cell key={col} width={col}/>
     )
   }
 
   return (
     <CellsContainer>
-      {cellRows}
+      {rows.map( (row, i) => (
+        <CellRow key={i} height={row}>
+          {cellColumns}
+        </CellRow>
+      ))}
     </CellsContainer>
   )
 }
 
 
 // component
-export default function ManualGrid(props) {
+export default function Grid(props) {
   return (
     <Container>
       <Cells/>

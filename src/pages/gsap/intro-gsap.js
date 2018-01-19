@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
-import animation from './animation'
 import Grid from '../../components/Grid'
 
 const Container = styled.div`
