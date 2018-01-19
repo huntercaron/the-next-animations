@@ -36,7 +36,7 @@ function PageLink(props) {
   return (
     <LinkContainer>
       <LinkText to={props.to}>
-        {props.title}
+        {props.children}
       </LinkText>
     </LinkContainer>
   )
@@ -44,44 +44,13 @@ function PageLink(props) {
 
 
 // page component
-export default function IndexPage({ data }) {
-  const pages = data.allMarkdownRemark.edges;
-
+export default function IndexPage() {
   return (
     <Container>
-      <Subtitle>dynamic pages:</Subtitle>
-
-      <List>
-        {pages.map( ({ node: page }, i) => (
-          <PageLink
-            to={page.frontmatter.path}
-            title={page.frontmatter.title}
-            key={page.id}
-          />
-        ))}
-      </List>
-
-      <Button text="this is a button component" />
-
+      <Subtitle>Testing Animations for the next:</Subtitle>
+      <PageLink to="/intro-css">intro using css</PageLink>
+      <PageLink to="/intro-css-2">intro using css (2)</PageLink>
+      <PageLink to="/intro-gsap">intro using gsap</PageLink>
     </Container>
   )
 }
-
-// data query
-export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            path
-            date(formatString: "DD MMMM, YYYY")
-          }
-        }
-      }
-    }
-  }
-`;

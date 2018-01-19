@@ -31,59 +31,21 @@ import NeueHaasGrotDispItalic_woff2 from "../assets/fonts/NeueHaasGrotDisp-56Ita
 
 // styled components
 const Container = styled.div`
-  margin: 4rem;
+  height: 100%;
 `
-
-const InnerContainer = styled.div`
-
-`
-
-const TitleLink = styled(Link)`
-  color: black;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`
-
-const HeaderContainer = styled.div`
-
-`
-
-
-// components
-function Header () {
-  return (
-    <HeaderContainer>
-      <TitleLink to="/">
-          <h1>Boiled</h1>
-      </TitleLink>
-    </HeaderContainer>
-  )
-}
-
 
 // page component
 const TemplateWrapper = ({ children }) => (
   <Container>
     <Helmet
-      title="boiled"
+      title="the-next-animations"
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
 
-    <Header />
-
-    {/*
-      Children() is where your page content is inserted.
-    */}
-    <InnerContainer>
-      {children()}
-    </InnerContainer>
+    {children()}
 
   </Container>
 )
@@ -107,13 +69,15 @@ injectGlobal`
   }
 
   html {
-  ${'' /* Maybe Try?  font-size: calc(1.25vw + 62.5%); */}
-    font-size: 62.5%;
+    ${'' /* Maybe Try?  font-size: calc(1.25vw + 62.5%); */}
+    font-size: calc(0.4vw + 62.5%);
+    ${'' /* font-size: 62.5%; */}
     height: 100%;
   }
 
   body {
       margin: 0;
+      height: 100%;
 
       font-size: 1.6em;
       line-height: 1.6;
@@ -125,6 +89,10 @@ injectGlobal`
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%;
       text-rendering: optimizeLegibility;
+  }
+
+  #___gatsby {
+    height: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
