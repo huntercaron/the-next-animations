@@ -81,7 +81,7 @@ injectGlobal`
 
       font-size: 1.6em;
       line-height: 1.6;
-      font-weight: 400;
+      font-weight: 400 !important;
       font-family: 'Haas Grot Text', 'Helvetica', 'Arial', sans-serif;
       color: #222;
       webkit-font-smoothing: antialiased;

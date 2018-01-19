@@ -12,12 +12,13 @@ import { grid } from '../../utils/constants.js'
 const GridBlock = styled.div`
   overflow: hidden;
   min-width: 0;
-  background-color: pink;
+  background-color: white;
   position: absolute;
   margin: -1px;
 
   border: 1px solid black;
   ${props => props.borderNo && 'border-' + props.borderNo + ': none;'}
+  ${props => props.pad && 'padding: 0.5rem;'}
 
   left: calc(${props => {
     let distance = 0;
