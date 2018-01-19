@@ -30,7 +30,7 @@ const FooterContainer = GridBlock.extend`
 
 const EmailContainer = styled.div`
   width: 100%;
-  height: 60px;
+  height: 70px;
   border-top: 1px solid black;
 `
 
