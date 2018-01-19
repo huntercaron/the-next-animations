@@ -1,69 +1,72 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// working on implementing the doppler grid with CSS grids
-
+const columns = [37,24,16,11,7,5];
+const rows = [3,5,7,10,16,24,36];
 
 // styled components
 const Container = styled.div`
-	height: ${props => props.height};
-  width: ${props => props.width};
-	margin: auto;
-	display: grid;
-	grid-template-columns: ${props => props.doppler(props.cols, "BACKWARD", 1)};
-	grid-template-rows: ${props => props.doppler(props.rows, "FORWARD", 1)};
-  min-height: 0;
-  min-width: 0;
-
-	height: 100%;
+  height: 100%;
 	width: 100%;
+  flex: 1;
+  position: relative;
 `
+
+const Text = styled.p`
+
+`
+
+// Cells Stuff
+const CellsContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+
+const CellRow = styled.div`
+  height: ${props => props.height}%;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid black;
+  margin-top: -1px;
+`
+
+const Cell = styled.div`
+  width: ${props => props.width}%;
+  height: 100%;
+  border-left: 1px solid black;
+  margin-right: -1px;
+`
+
+function Cells() {
+  let cellColumns = [];
+
+  for (let col of columns) {
+    cellColumns.push(
+      <Cell key={col} width={col}/>
+    )
+  }
+
+  return (
+    <CellsContainer>
+      {rows.map( (row, i) => (
+        <CellRow key={i} height={row}>
+          {cellColumns}
+        </CellRow>
+      ))}
+    </CellsContainer>
+  )
+}
 
 
 // component
-export default class Grid extends React.Component {
-  constructor(props) {
-    super(props);
-
-    if (typeof window !== `undefined`) {
-      this.rows = Math.floor(window.innerHeight/120);
-      this.cols = Math.floor(window.innerWidth/120);
-    } else {
-      this.rows = this.cols = 8;
-    }
-  }
-
-  doppler = (num, direction, basis) => {
-    let base = "";
-		let basisString = ` ${basis}fr `;
-
-    switch (direction) {
-      case 'FORWARD':
-        for (let i = basis; i < num; i++) {
-          base += Math.pow(1.6, i).toFixed(2) + "fr "
-        }
-        return basisString + base;
-      case 'BACKWARD':
-        for (let i = num; i > basis; i--) {
-          base += Math.pow(1.6, i).toFixed(2) + "fr "
-        }
-        return base + basisString;
-      default:
-        return base;
-    }
-  }
-
-  render() {
-    return (
-			<Container
-        innerRef={container => {this.componentContainer = container}}
-        doppler={this.doppler}
-        rows={this.rows}
-        cols={this.cols}>
-
-        {this.props.children}
-
-			</Container>
-		)
-  }
+export default function Grid(props) {
+  return (
+    <Container>
+      <Cells/>
+      {props.children}
+    </Container>
+  )
 }
