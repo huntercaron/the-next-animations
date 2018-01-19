@@ -5,7 +5,13 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 // styled components
 const Container = styled.div`
+  .mapboxgl-control-container {
+    display: none !important;
+  }
 
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 `
 
 const Text = styled.p`
@@ -15,11 +21,12 @@ const Text = styled.p`
 export default class Map extends React.Component {
   state = {
     viewport: {
-      width: 400,
-      height: 200,
-      latitude: 43.63683,
-      longitude: -79.40841,
-      zoom: 8
+      width: 500,
+      height: 300,
+      latitude: 43.642690,
+      longitude: -79.427036,
+      mapStyle: 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3',
+      zoom: 14
     }
   };
 
