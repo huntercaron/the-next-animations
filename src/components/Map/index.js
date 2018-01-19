@@ -9,6 +9,7 @@ const Container = styled.div`
     display: none !important;
   }
 
+  display: flex;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -21,7 +22,7 @@ const Text = styled.p`
 export default class Map extends React.Component {
   state = {
     viewport: {
-      width: 500,
+      width: 1000,
       height: 300,
       latitude: 43.642690,
       longitude: -79.427036,
