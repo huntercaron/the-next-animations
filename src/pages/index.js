@@ -6,7 +6,7 @@ import Statement from '../components/Statement'
 import Timer from '../components/Timer'
 import ContentPreview from '../components/ContentPreview'
 import Map from '../components/Map'
-import { P, H2, H3 } from '../components/Type'
+import { P, H2, H3, Link } from '../components/Type'
 
 const Container = styled.div`
   padding: 0.75rem;
@@ -40,8 +40,11 @@ const EmailContainer = styled.div`
 `
 
 const EmailButton = styled.div`
+  display: flex;
   width: 100%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
 `
 
 const SocialContainer = styled.div`
@@ -115,6 +118,7 @@ export default class IntroCSS extends React.Component {
               <SocialContainer>
 
                 <EmailButton>
+                  <Link>Keep In Touch</Link>
                 </EmailButton>
 
                 <Instagram>

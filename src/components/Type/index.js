@@ -23,6 +23,11 @@ const P = styled.p`
   line-height: 1.3;
   margin-top: -3px;
 `
-
+const Link = styled.a`
+  font-size: 1.2rem;
+  line-height: 1.3;
+  margin: auto;
+  text-decoration: underline;
+`
 // component
-export default { P, H1, H2 }
+export default { P, H1, H2, Link }
