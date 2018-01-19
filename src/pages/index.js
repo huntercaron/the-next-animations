@@ -28,10 +28,36 @@ const FooterContainer = GridBlock.extend`
   justify-content: space-between;
 `
 
+const FooterInnerContainer = styled.div`
+  padding: 0.5rem;
+`
+
 const EmailContainer = styled.div`
   width: 100%;
   height: 70px;
+  flex-shrink: 0;
   border-top: 1px solid black;
+`
+
+const EmailButton = styled.div`
+  width: 100%;
+  height: 100%;
+`
+
+const SocialContainer = styled.div`
+  width: 100%;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  border-top: 1px solid black;
+`
+
+const Instagram = styled.div`
+  height: 70px;
+  width: 70px;
+  flex-shrink: 0;
+  border-left: 1px solid black;
+  align-self: flex-end;
 `
 
 // page component
@@ -67,15 +93,34 @@ export default class IntroCSS extends React.Component {
             <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
             <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
+
               <Map />
 
               <EmailContainer>
-
               </EmailContainer>
+
             </FooterContainer>
 
 
             <FooterContainer rowStart={6} colStart={2} colEnd={6} wAdjust={3}>
+
+              <FooterInnerContainer>
+                <H2>
+                  April 11—13, 2018 <br/>
+                  Gladstone Hotel <br/>
+                  Toronto <br/>
+                </H2>
+              </FooterInnerContainer>
+
+              <SocialContainer>
+
+                <EmailButton>
+                </EmailButton>
+
+                <Instagram>
+                </Instagram>
+
+              </SocialContainer>
 
             </FooterContainer>
 
