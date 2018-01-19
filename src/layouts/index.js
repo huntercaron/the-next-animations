@@ -98,7 +98,7 @@ injectGlobal`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Haas Grot Display', 'Helvetica', 'Arial', sans-serif;
     margin-top: 0;
-    margin-bottom: 0rem;
+    margin-bottom: 0;
     font-weight: 400;
   }
 

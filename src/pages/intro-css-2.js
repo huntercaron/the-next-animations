@@ -39,6 +39,8 @@ const StatementContainer = styled.div`
 const StatementText = styled.h1`
   text-transform: uppercase;
   line-height: 1;
+  margin-top: 0;
+  margin-bottom: 0;
 
   text-align: ${props => props.right ? "right" : "left"}
 `
