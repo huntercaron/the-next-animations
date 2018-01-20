@@ -17,6 +17,11 @@ const GridBlock = styled.div`
   margin: -1px;
   color: ${props => props.theme.fg};
 
+  transition: all 250ms ease-out;
+
+  &:hover {
+  }
+
   border: 1px solid ${props => props.theme.fg};
   ${props => props.borderNo && 'border-' + props.borderNo + ': none;'}
   ${props => props.pad && 'padding: 0.5rem;'}
@@ -27,7 +32,6 @@ const GridBlock = styled.div`
     let colEnd = props.colEnd || colStart;
     for (let i = 0; i < colStart; i++) {
       distance += grid.columns[i];
-      console.log(distance);
     }
     return distance;
   }}% - ${props => (props.colStart - 1 || 0)}px);

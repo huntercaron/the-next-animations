@@ -70,7 +70,7 @@ const darkTheme = {
 export default class IntroCSS extends React.Component {
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={darkTheme}>
         <Container>
           <InnerContainer>
             <Statement/>
