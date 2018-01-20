@@ -116,7 +116,7 @@ export default class IntroCSS extends React.Component {
 
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
-              <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+              <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" action="#">
                 <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
                   <input type="hidden" name="form-name" value="contact" />
 
