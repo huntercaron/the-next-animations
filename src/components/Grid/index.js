@@ -27,14 +27,14 @@ const CellRow = styled.div`
   height: ${props => props.height}%;
   width: 100%;
   display: flex;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${props => props.theme.fg};
   margin-top: -1px;
 `
 
 const Cell = styled.div`
   width: ${props => props.width}%;
   height: 100%;
-  border-left: 1px solid black;
+  border-left: 1px solid ${props => props.theme.fg};
   margin-right: -1px;
 `
 

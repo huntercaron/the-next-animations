@@ -12,11 +12,12 @@ import { grid } from '../../utils/constants.js'
 const GridBlock = styled.div`
   overflow: hidden;
   min-width: 0;
-  background-color: white;
+  background-color: ${props => props.theme.bg};
   position: absolute;
   margin: -1px;
+  color: ${props => props.theme.fg};
 
-  border: 1px solid black;
+  border: 1px solid ${props => props.theme.fg};
   ${props => props.borderNo && 'border-' + props.borderNo + ': none;'}
   ${props => props.pad && 'padding: 0.5rem;'}
 

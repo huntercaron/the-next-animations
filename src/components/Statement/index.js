@@ -9,6 +9,7 @@ const StatementContainer = styled.div`
   position: relative;
   padding: 0 0.25rem;
   overflow: hidden;
+  color: ${props => props.theme.fg};
 
   display: flex;
   flex-direction: column;
