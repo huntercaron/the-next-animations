@@ -41,12 +41,16 @@ const EmailContainer = styled.div`
   border-top: 1px solid ${props => props.theme.fg};
 `
 
-const EmailButton = styled.div`
+const EmailButton = styled.button`
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
+`
+
+const EmailInput = styled.input`
+
 `
 
 const SocialContainer = styled.div`
@@ -99,37 +103,40 @@ export default class IntroCSS extends React.Component {
 
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
-              <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
+              <form name="contact" netlify="true">
+                <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
 
-                <Map />
+                  <Map />
 
-                <EmailContainer>
-                </EmailContainer>
+                  <EmailContainer>
+                    <EmailInput type="email" name="email" placeholder="Enter Email…"/>
+                  </EmailContainer>
 
-              </FooterContainer>
+                </FooterContainer>
 
 
-              <FooterContainer rowStart={6} colStart={2} colEnd={6} wAdjust={3}>
+                <FooterContainer rowStart={6} colStart={2} colEnd={6} wAdjust={3}>
 
-                <FooterInnerContainer>
-                  <H2>
-                    April 11—13, 2018 <br/>
-                    Gladstone Hotel <br/>
-                    Toronto <br/>
-                  </H2>
-                </FooterInnerContainer>
+                  <FooterInnerContainer>
+                    <H2>
+                      April 11—13, 2018 <br/>
+                      Gladstone Hotel <br/>
+                      Toronto <br/>
+                    </H2>
+                  </FooterInnerContainer>
 
-                <SocialContainer>
+                  <SocialContainer>
 
-                  <EmailButton>
-                    <Link>Keep In Touch</Link>
-                  </EmailButton>
+                    <EmailButton type="submit">
+                      Keep In Touch
+                    </EmailButton>
 
-                  <Instagram />
+                    <Instagram />
 
-                </SocialContainer>
+                  </SocialContainer>
 
-              </FooterContainer>
+                </FooterContainer>
+              </form>
 
             </Grid>
 
