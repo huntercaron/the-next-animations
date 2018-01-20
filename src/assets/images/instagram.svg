@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 4</title>
+    <title>Instagram</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="teaser_v2---about-section-copy-17" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-788.000000, -693.000000)">
-        <g id="Group-4" transform="translate(788.000000, 693.000000)" stroke="#FFFFFF">
-            <rect id="Rectangle-2" x="0.5" y="0.5" width="19" height="19" rx="2"></rect>
-            <rect id="Rectangle-2-Copy" x="5.5" y="5.5" width="9" height="9" rx="4.5"></rect>
+    <g id="Home---Scroll-State" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1372.000000, -263.000000)">
+        <g id="Instagram" transform="translate(1372.000000, 263.000000)" stroke="#141414">
+            <rect id="Rectangle" x="0.5" y="0.5" width="29" height="29" rx="5"></rect>
+            <circle id="Oval" cx="15" cy="15" r="8"></circle>
+            <circle id="Oval-Copy" cx="24.3333333" cy="5" r="1"></circle>
         </g>
     </g>
 </svg>
