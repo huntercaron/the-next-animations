@@ -9,6 +9,18 @@ const grid = {
   rowWidthFix: [0,5,0,0,0,2]
 };
 
-export { grid };
+const type = {
+  baseSize: '1.2rem',
+  smaller: '1rem'
+}
+
+const spacing = {
+  padding: {
+    normal: '0.5rem',
+    bigger: '1rem'
+  }
+}
+
+export { grid, type, spacing };
 
 //mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye

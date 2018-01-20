@@ -8,6 +8,7 @@ import ContentPreview from '../components/ContentPreview'
 import Map from '../components/Map'
 import Instagram from '../components/Instagram'
 import { P, H2, H3, Link } from '../components/Type'
+import { type, spacing } from '../utils/constants.js'
 
 const Container = styled.div`
   padding: 0.75rem;
@@ -39,6 +40,8 @@ const EmailContainer = styled.div`
   height: 70px;
   flex-shrink: 0;
   border-top: 1px solid ${props => props.theme.fg};
+  display: flex;
+  padding-left: ${ spacing.padding.bigger };
 `
 
 const EmailButton = styled.button`
@@ -47,10 +50,20 @@ const EmailButton = styled.button`
   height: 100%;
   align-items: center;
   justify-content: center;
+  padding-top: 0.25rem;
+  color: ${props => props.theme.fg};
+  border: none;
+  text-decoration: underline;
+  background-color: ${props => props.theme.bg};
+  font-size: ${ type.smaller };
 `
 
 const EmailInput = styled.input`
-
+  outline: none;
+  background-color: ${props => props.theme.bg};
+  color: ${props => props.theme.fg};
+  border: none;
+  font-size: ${ type.smaller };
 `
 
 const SocialContainer = styled.div`
@@ -103,8 +116,9 @@ export default class IntroCSS extends React.Component {
 
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
-              <form name="contact" netlify="true">
+              <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                 <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
+                  <input type="hidden" name="form-name" value="contact" />
 
                   <Map />
 
