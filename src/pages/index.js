@@ -176,14 +176,13 @@ export default class IntroCSS extends React.Component {
 
               <GridBlock rowStart={0} rowEnd={3} colStart={0} colEnd={4} wAdjust={-3} pad>
                 <H2>
-                  Graduate Showcase<br/>
-                  of York University/Sheridan College<br/>
-                  Joint Program in Design<br/>
+                  Graduate Design Show by<br/>
+                  York University/Sheridan College
                 </H2>
               </GridBlock>
 
-              <GridBlock rowStart={3} rowEnd={5} colStart={0} colEnd={2} mColEnd={3} wAdjust={-1} pad>
-                <P>Any way you frame it, we’re generators and synthesizers. We invent, create, and shape the world surrounding us. Design in this way unites us as makers, but it also differentiates us through process.</P>
+              <GridBlock rowStart={3} rowEnd={5} colStart={0} colEnd={2} mColEnd={4} wAdjust={1} pad>
+                <P>Adapt to change and become the future. The Next Graduate Design Show brought to you by York/Sheridan Design is an encapsulation of the milestones by the students within the past four years. Bringing together the students, industry and the public, this showcase is an opportunity to celebrate our graduating class and highlight our growth and ambition, with no foreseeable end.</P>
               </GridBlock>
 
               <Timer

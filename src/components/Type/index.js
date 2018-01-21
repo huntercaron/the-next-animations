@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { breakpoints } from '../../utils/constants.js'
+import { breakpoints, spacing } from '../../utils/constants.js'
 
 // styled components
 const H1 = styled.div`
@@ -29,6 +29,7 @@ const P = styled.p`
   font-size: 1.05rem;
   line-height: 1.3;
   margin-top: -3px;
+  margin-right: 0.75rem;
 
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 1.2rem;
