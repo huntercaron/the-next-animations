@@ -14,6 +14,10 @@ const Container = styled.div`
   padding: 0.75rem;
   height: 100%;
   background-color: ${props => props.theme.bg};
+
+  @media (max-width: ${breakpoints.mobile}) {
+    height: auto;
+  }
 `
 
 const InnerContainer = styled.div`
@@ -26,7 +30,8 @@ const InnerContainer = styled.div`
 
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
-    height: 1100px;
+    height: 1000px;
+    margin-bottom: ${spacing.padding.smaller};
     border-left: none;
     border-right: none;
   }
@@ -177,7 +182,7 @@ export default class IntroCSS extends React.Component {
                 </H2>
               </GridBlock>
 
-              <GridBlock rowStart={3} rowEnd={5} colStart={0} colEnd={2} wAdjust={-1} pad>
+              <GridBlock rowStart={3} rowEnd={5} colStart={0} colEnd={2} mColEnd={3} wAdjust={-1} pad>
                 <P>Any way you frame it, we’re generators and synthesizers. We invent, create, and shape the world surrounding us. Design in this way unites us as makers, but it also differentiates us through process.</P>
               </GridBlock>
 
@@ -192,7 +197,7 @@ export default class IntroCSS extends React.Component {
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
               <form onSubmit={this.handleSubmit}>
-                <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
+                <FooterContainer rowStart={6} rowEnd={7} colStart={0} colEnd={2} wAdjust={1}>
 
                   <Map theme={this.state.theme}/>
 
@@ -203,7 +208,7 @@ export default class IntroCSS extends React.Component {
                 </FooterContainer>
 
 
-                <FooterContainer rowStart={6} colStart={2} colEnd={6} wAdjust={3}>
+                <FooterContainer rowStart={6} rowEnd={7} colStart={2} colEnd={6} wAdjust={3}>
 
                   <FooterInnerContainer>
                     <H2>

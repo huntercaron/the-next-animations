@@ -75,6 +75,49 @@ const GridBlock = styled.div`
     }
     return height;
   }}% + ${props => -1 * (props.rowEnd - props.rowStart - 1 || 0) + (props.hAdjust || 0)}px);
+
+
+  @media (max-width: ${breakpoints.mobile}) {
+    left: calc(${props => {
+      let distance = 0;
+      let mColStart = props.mColStart || props.colStart;
+      let mColEnd = props.mColEnd || props.colEnd;
+      for (let i = 0; i < mColStart; i++) {
+        distance += grid.columns[i];
+      }
+      return distance;
+    }}% - ${props => (props.colStart - 1 || 0)}px);
+
+    width: calc(${props => {
+      let width = 0;
+      let mColStart = props.mColStart || props.colStart;
+      let mColEnd = props.mColEnd || props.colEnd;
+      for (let i = mColStart; i < mColEnd; i++) {
+        width += grid.columns[i];
+      }
+      return width;
+    }}% + ${props => props.wAdjust}px);
+
+    top: calc(${props => {
+      let distance = 0;
+      let mRowStart = props.mRowStart || props.rowStart;
+      let mRowEnd = props.mRowEnd || props.rowEnd;
+      for (let i = 0; i < mRowStart; i++) {
+        distance += grid.rows[i];
+      }
+      return distance;
+    }}% - ${props => props.rowStart || 0}px);
+
+    height: calc(${props => {
+      let height = 0;
+      let mRowStart = props.mRowStart || props.rowStart;
+      let mRowEnd = props.mRowEnd || props.rowEnd;
+      for (let i = mRowStart; i < mRowEnd; i++) {
+        height += grid.rows[i];
+      }
+      return height;
+    }}% + ${props => -1 * (props.rowEnd - props.rowStart - 1) + (props.hAdjust)}px);
+  }
 `
 
 export default GridBlock;

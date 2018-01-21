@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import GridBlock from '../GridBlock'
-import { grid, spacing } from '../../utils/constants.js'
+import { grid, spacing, breakpoints } from '../../utils/constants.js'
 import { H2 } from '../Type'
 
 // styled components
@@ -10,6 +10,10 @@ const Container = GridBlock.extend`
   height: 100%;
   width: 100%;
   border-right: none;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    border-right: 1px solid ${props => props.theme.fg};
+  }
 `
 
 const InnerContainer = styled.div`
@@ -17,7 +21,7 @@ const InnerContainer = styled.div`
   height: 100%;
   display: flex;
   overflow-x: auto;
-  padding-bottom: 15px; /*This would hide the scroll bar of the bottom if there is one*/
+  padding-bottom: 15px !important; /*This would hide the scroll bar of the bottom if there is one*/
 `
 
 const Text = styled.p`
@@ -29,6 +33,10 @@ const ProjectContainer = styled.div`
   flex-shrink: 0;
   border-right: 1px solid ${props => props.theme.fg};
   padding: ${ spacing.padding.normal };
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: calc(${grid.columns[0] + grid.columns[1]}% - 1px);
+  }
 `
 
 const ProjectTitle = H2.extend`
