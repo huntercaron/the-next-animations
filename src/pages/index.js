@@ -99,6 +99,9 @@ const EmailInput = styled.input`
   border: none;
   font-size: ${ type.smaller };
 
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1.3rem;
+  }
 
   &:disabled, &:disabled:hover {
     opacity: 0.3;

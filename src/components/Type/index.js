@@ -14,7 +14,7 @@ const H2 = styled.h2`
   margin-top: -3px;
 
   @media (max-width: ${breakpoints.mobile}) {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 `
 
@@ -32,7 +32,8 @@ const P = styled.p`
   margin-right: 0.75rem;
 
   @media (max-width: ${breakpoints.mobile}) {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin-right: 1.8rem;
   }
 `
 
