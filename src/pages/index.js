@@ -71,6 +71,7 @@ const EmailButton = styled.button`
   }
 
   &:disabled, &:disabled:hover {
+    border-right: 1px solid ${props => props.theme.fg};
     color: ${props => props.theme.fg};
     background-color: ${props => props.theme.bg};
     text-decoration: none;
@@ -87,7 +88,7 @@ const EmailInput = styled.input`
   font-size: ${ type.smaller };
 
   &:disabled, &:disabled:hover {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 `
 
@@ -120,7 +121,7 @@ export default class IntroCSS extends React.Component {
       super(props);
       this.state = {
         email: "",
-        formSubmitted: false
+        formSubmitted: true
       };
   }
 
@@ -177,7 +178,7 @@ export default class IntroCSS extends React.Component {
                   <Map />
 
                   <EmailContainer>
-                    <EmailInput onChange={this.handleChange} disabled={this.formSubmitted} type="email" name="email" placeholder="Enter Email for The Next Updates…"/>
+                    <EmailInput onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email for The Next Updates…"/>
                   </EmailContainer>
 
                 </FooterContainer>
@@ -195,7 +196,7 @@ export default class IntroCSS extends React.Component {
 
                   <SocialContainer>
 
-                    <EmailButton disabled={this.formSubmitted} type="submit">
+                    <EmailButton disabled={this.state.formSubmitted} type="submit">
                       {this.state.formSubmitted ? 'We\'ll Update You ✔' : 'Get Updates'}
                     </EmailButton>
 

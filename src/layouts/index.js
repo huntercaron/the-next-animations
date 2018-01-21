@@ -39,11 +39,14 @@ const Container = styled.div`
 const TemplateWrapper = ({ children }) => (
   <Container>
     <Helmet
-      title="the-next-gradshow"
+      title="Announcing The Next Gradshow"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-        { name: 'author', content: 'York/Sheridan Design' },
+        { name: 'description', content: 'Graduate Showcase of York University/Sheridan College Joint Program in Design' },
+        { name: 'keywords', content: 'York University, Sheridan College, ysdn, design, york, sheridan, the next, the next gradshow' },
+        { name: 'author', content: 'York University/Sheridan College Joint Program in Design' },
+        { name: 'og:url', content: 'http://announcing.thenext.website' },
+        { name: 'og:type', content: 'website' },
+        { name: 'og:description', content: 'Graduate Showcase of York University/Sheridan College Joint Program in Design' },
         { property: 'og:image', content: 'http://animating.thenext.website' + facebookCard }
       ]}
     />
@@ -103,6 +106,19 @@ injectGlobal`
     margin-top: 0;
     margin-bottom: 0;
     font-weight: 400;
+  }
+
+  body::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  body::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
   }
 
   @font-face {
