@@ -19,6 +19,11 @@ const TimerContainer = styled.div`
 const TimerNumber = styled.div`
   width: 2.5rem;
   writing-mode: vertical-lr;
+  font-variant-numeric: tabular-nums;
+  -moz-font-feature-settings: "tnum";
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  letter-spacing: -1px;
 
   p {
     margin: 0;
@@ -27,7 +32,7 @@ const TimerNumber = styled.div`
 
 const Hide = styled.span`
   opacity: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 `
 
 const ColonWrapper = styled.span`

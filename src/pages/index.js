@@ -108,6 +108,8 @@ export default class IntroCSS extends React.Component {
   }
 
   handleSubmit = (e) => {
+    e.preventDefault();
+    
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -179,7 +181,7 @@ export default class IntroCSS extends React.Component {
                   <SocialContainer>
 
                     <EmailButton type="submit">
-                      Keep In Touch
+                      {this.state.formSubmitted ? '&#10003;' : 'Keep in Touch'}
                     </EmailButton>
 
                     <Instagram />
