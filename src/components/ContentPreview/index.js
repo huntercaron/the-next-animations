@@ -28,7 +28,7 @@ const Text = styled.p`
 `
 
 const ProjectContainer = styled.div`
-  width: calc(${grid.columns[0] + grid.columns[1]}% - 2px);
+  width: calc(${grid.columns[0] + grid.columns[1]}% - 1px);
   height: 100%;
   flex-shrink: 0;
   border-right: 1px solid ${props => props.theme.fg};
@@ -43,11 +43,28 @@ const ProjectTitle = H2.extend`
   opacity: ${props => props.disabled ? "0.5" : "1"};
 `
 
+const ArrowContainer = styled.div`
+  width: calc(${grid.columns[0] + grid.columns[1]}% - 1px);
+  height: 100%;
+  border-left: 1px solid ${props => props.theme.fg};
+  position: absolute;
+  right: 0;
+  top: 0;
+`
+
 function Project(props) {
   return(
     <ProjectContainer {...props}>
       <ProjectTitle {...props}>{props.title}</ProjectTitle>
     </ProjectContainer>
+  )
+}
+
+function NavArrow(props) {
+  return(
+    <ArrowContainer>
+
+    </ArrowContainer>
   )
 }
 
@@ -71,6 +88,8 @@ export default class ContentPreview extends React.Component {
             disabled={true}
             title="Microsite 2"
           />
+
+
         </InnerContainer>
       </Container>
     )

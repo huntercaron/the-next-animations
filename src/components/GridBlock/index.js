@@ -96,7 +96,7 @@ const GridBlock = styled.div`
         width += grid.columns[i];
       }
       return width;
-    }}% + ${props => props.wAdjust}px);
+    }}% + ${props => props.mWAjust || props.wAdjust}px);
 
     top: calc(${props => {
       let distance = 0;

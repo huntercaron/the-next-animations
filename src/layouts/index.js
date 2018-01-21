@@ -47,7 +47,7 @@ const TemplateWrapper = ({ children }) => (
         { name: 'og:url', content: 'http://announcing.thenext.website' },
         { name: 'og:type', content: 'website' },
         { name: 'og:description', content: 'Graduate Showcase of York University/Sheridan College Joint Program in Design' },
-        { property: 'og:image', content: 'http://animating.thenext.website' + facebookCard }
+        { property: 'og:image', content: 'http://announcing.thenext.website' + facebookCard }
       ]}
     />
 
