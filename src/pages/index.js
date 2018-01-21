@@ -166,7 +166,7 @@ export default class IntroCSS extends React.Component {
                   <Map />
 
                   <EmailContainer>
-                    <EmailInput onChange={this.handleChange} type="email" name="email" placeholder="Enter Email…"/>
+                    <EmailInput onChange={this.handleChange} type="email" name="email" placeholder="Enter Email for The Next Updates…"/>
                   </EmailContainer>
 
                 </FooterContainer>
@@ -185,7 +185,7 @@ export default class IntroCSS extends React.Component {
                   <SocialContainer>
 
                     <EmailButton type="submit">
-                      {this.state.formSubmitted ? '✔' : 'Keep in Touch'}
+                      {this.state.formSubmitted ? 'Thanks ✔' : 'Get Updates'}
                     </EmailButton>
 
                     <Instagram />
