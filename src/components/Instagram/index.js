@@ -12,6 +12,7 @@ const Container = styled.a`
   align-items: center;
   border-left: 1px solid ${props => props.theme.bg};
   background-color: ${props => props.theme.bg};
+  padding-bottom: 2px;
 
   #instagram {
     stroke: ${props => props.theme.fg};
@@ -41,11 +42,11 @@ export default function Base(props) {
     // <ThemeProvider theme={invertTheme}>
       <Container target="_blank" href="https://www.instagram.com/ysdnthenext/">
         <svg width="30px" height="29px" viewBox="0 0 30 30" version="1.1" shapeRendering="geometricPrecision">
-            <g id="Home---Scroll-State" stroke="none" strokeWidth="1.1" fill="none" fillRule="evenodd" transform="translate(-1372.000000, -263.000000)">
+            <g id="Home---Scroll-State" stroke="none" strokeWidth="1.1" fill="none" fillRule="evenodd" transform="translate(-1373.000000, -263.000000)">
                 <g id="instagram" transform="translate(1372.000000, 263.000000)">
-                    <rect id="Rectangle" x="0.5" y="0.5" width="29" height="29" rx="5"></rect>
-                    <circle id="Oval" cx="15" cy="15" r="8"></circle>
-                    <circle id="Oval-Copy" cx="24.3333333" cy="5" r="1.5"></circle>
+                    <rect id="Rectangle" x="1" y="1" width="29" height="29" rx="5"></rect>
+                    <circle id="Oval" cx="15.5" cy="15.5" r="8"></circle>
+                    <circle id="Oval-Copy" cx="24.9" cy="5.5" r="1.5"></circle>
                 </g>
             </g>
         </svg>
