@@ -14,7 +14,9 @@ const H2 = styled.h2`
 `
 
 const H3 = styled.div`
-
+  line-height: 1.2;
+  margin-top: -3px;
+  font-size: 1.6rem;
 `
 
 const P = styled.p`
@@ -31,4 +33,4 @@ const Link = styled.a`
   text-decoration: underline;
 `
 // component
-export default { P, H1, H2, Link }
+export default { P, H1, H2, H3, Link }
