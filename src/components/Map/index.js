@@ -44,20 +44,6 @@ const InnerContainer = styled.div`
 
 // component
 export default class Map extends React.Component {
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.display != this.props.display) {
-      this.setState({
-        latitude: nextProps.viewport.latitude,
-        longitude: nextProps.viewport.longitude,
-        zoom: nextProps.viewport.zoom,
-        mapStyle: nextProps.viewport.mapStyle,
-        width: 800,
-        height: 600,
-      });
-    }
-  }
-
   render() {
     return (
       <Container display={this.props.display}>
@@ -68,9 +54,6 @@ export default class Map extends React.Component {
               onViewportChange={(viewport) => {
                 viewport.mapStyle = this.props.theme;
                 this.props.onViewportChange(viewport.latitude, viewport.longitude, viewport.zoom);
-
-                // if (this.props.display)
-                //   this.setState({viewport});
               }}>
             </ReactMapGL>
           }
