@@ -185,7 +185,7 @@ export default class IntroCSS extends React.Component {
                   <SocialContainer>
 
                     <EmailButton type="submit">
-                      {this.state.formSubmitted ? '&#10003;' : 'Keep in Touch'}
+                      {this.state.formSubmitted ? '✔' : 'Keep in Touch'}
                     </EmailButton>
 
                     <Instagram />
