@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { grid } from '../../utils/constants.js'
+import { grid, animations } from '../../utils/constants.js'
 
 
 /*
@@ -10,6 +10,7 @@ import { grid } from '../../utils/constants.js'
 
 // styled components
 const GridBlock = styled.div`
+
   overflow: hidden;
   min-width: 0;
   background-color: ${props => props.theme.bg};
@@ -17,7 +18,17 @@ const GridBlock = styled.div`
   margin: -1px;
   color: ${props => props.theme.fg};
 
+  opacity: 0;
+  transform-origin: right;
+  animation: ${animations.fadeIn} 0.8s 2s ease-in-out forwards;
   transition: all 250ms ease-out;
+
+  > div, h2, p {
+    transition: opacity 250ms ease-out;
+    opacity: 0;
+    transform: scaleX(1);
+    animation: ${animations.fadeIn} 0.8s 3s ease-out forwards;
+  }
 
   &:hover {
   }

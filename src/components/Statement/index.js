@@ -1,16 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import { grid, spacing } from '../../utils/constants.js'
+import { grid, spacing, animations } from '../../utils/constants.js'
 
 // styled components
 const StatementContainer = styled.div`
   ${'' /* border-right: 1px solid black; */}
   height: 100%;
-  width: 40%;
+  width: 100%;
   position: relative;
   padding: 0 ${ spacing.padding.smaller };
   overflow: hidden;
   color: ${props => props.theme.fg};
+
+  animation: ${animations.growIn} 0.8s 1s ease-in-out forwards;
 
   display: flex;
   flex-direction: column;
@@ -18,9 +20,6 @@ const StatementContainer = styled.div`
 
   transition: all 250ms ease-out;
 
-  &:hover {
-    width: 50%;
-  }
 `
 
 const StatementText = styled.h1`

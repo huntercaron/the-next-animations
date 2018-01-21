@@ -1,6 +1,9 @@
+import { keyframes } from 'styled-components';
+
 /**
  * Global constants: Colors, animations, grid, etc
  */
+
 
 const grid = {
   columns: [37,24,16,11,7,5],
@@ -22,6 +25,42 @@ const spacing = {
   }
 }
 
-export { grid, type, spacing };
+const animations = {
+  borderIn: keyframes`
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  `,
+  scaleIn: keyframes`
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  `,
+  fadeIn: keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `,
+  growIn: keyframes`
+    from {
+      width: 100%;
+    }
+    to {
+      width: 40%;
+    }
+  `
+};
+
+
+export { grid, type, spacing, animations };
 
 //mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye

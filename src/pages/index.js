@@ -8,7 +8,7 @@ import ContentPreview from '../components/ContentPreview'
 import Map from '../components/Map'
 import Instagram from '../components/Instagram'
 import { P, H2, H3, Link } from '../components/Type'
-import { type, spacing } from '../utils/constants.js'
+import { type, spacing, animations } from '../utils/constants.js'
 
 const Container = styled.div`
   padding: 0.75rem;
