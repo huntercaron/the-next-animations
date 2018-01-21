@@ -97,6 +97,12 @@ const darkTheme = {
   bg: 'black'
 };
 
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
+
 // page component
 export default class IntroCSS extends React.Component {
   constructor(props) {
@@ -108,8 +114,6 @@ export default class IntroCSS extends React.Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
