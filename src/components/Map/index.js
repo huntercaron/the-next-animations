@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ReactMapGL, {Marker} from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { animations } from '../../utils/constants.js'
 
 // styled components
 const Container = styled.div`
@@ -12,8 +13,8 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  animation-delay: 0s !important;
-  ${props => props.transitioned && 'animation-delay: 0s !important;'}
+  animation: ${animations.fadeIn} 0.3s 0s ease-in-out forwards;
+
 `
 
 const Text = styled.p`
@@ -33,10 +34,6 @@ const InnerContainer = styled.div`
   right: 0;
 `
 
-function stylePick(theme) {
-  return theme.dark ? 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye' : 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3';
-}
-
 // component
 export default class Map extends React.Component {
   state = {
@@ -47,19 +44,11 @@ export default class Map extends React.Component {
       longitude: -79.434236,
       mapStyle: this.props.theme,
       zoom: 15,
-      transitioned: false
     }
   };
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      transitioned: true
-    })
-  }
-
 
   render() {
-    console.log(this.props);
     return (
       <Container transitioned={this.state.transitioned}>
         <InnerContainer>

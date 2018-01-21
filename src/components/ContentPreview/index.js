@@ -40,8 +40,14 @@ const ProjectContainer = styled.div`
   }
 
   @media (max-width: ${breakpoints.mobile}) {
+    width: calc(${grid.columns[0] + grid.columns[1]}% - 3px);
+  }
+
+  @media (max-width: 360px) {
     width: calc(${grid.columns[0] + grid.columns[1]}% - 2px);
   }
+
+
 `
 
 const ProjectTitle = H2.extend`

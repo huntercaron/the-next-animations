@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import Grid from '../components/Grid'
 import GridBlock from '../components/GridBlock'
 import Statement from '../components/Statement'
-import Timer from '../components/Timer'
+import GridTimer from '../components/GridTimer'
 import ContentPreview from '../components/ContentPreview'
 import Map from '../components/Map'
 import Instagram from '../components/Instagram'
@@ -53,6 +53,7 @@ const EmailContainer = styled.div`
   flex-shrink: 0;
   border-top: 1px solid ${props => props.theme.fg};
   display: flex;
+  background-color: ${props => props.theme.bg};
   padding-left: ${ spacing.padding.bigger };
 `
 
@@ -114,6 +115,10 @@ const SocialContainer = styled.div`
   flex-shrink: 0;
   display: flex;
   border-top: 1px solid ${props => props.theme.fg};
+`
+
+const MapContainer = styled.div`
+  animation: ${animations.fadeIn} 0.3s 0s ease-in-out forwards;
 `
 
 const lightTheme = {
@@ -188,7 +193,7 @@ export default class IntroCSS extends React.Component {
                 <P>Adapt to change and become the future. The Next Graduate Design Show brought to you by York/Sheridan Design is an encapsulation of the milestones by the students within the past four years. Bringing together the students, industry and the public, this showcase is an opportunity to celebrate our graduating class and highlight our growth and ambition, with no foreseeable end.</P>
               </GridBlock>
 
-              <Timer
+              <GridTimer
                 rowStart={3}
                 rowEnd={5}
                 colStart={4}
@@ -202,11 +207,16 @@ export default class IntroCSS extends React.Component {
                 <FooterContainer rowStart={6} rowEnd={7} colStart={0} colEnd={2} wAdjust={1}>
 
                   {this.state.theme.dark ? (
-                    <Map theme={'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye'}/>
+                    <MapContainer>
+                      <MapContainer>
+                        <Map theme={'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye'}/>
+                      </MapContainer>
+
+                    </MapContainer>
                   ):(
-                    <div>
-                    <Map theme={'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3'}/>
-                    </div>
+                    <MapContainer>
+                      <Map theme={'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3'}/>
+                    </MapContainer>
                   )}
 
 
