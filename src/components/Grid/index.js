@@ -38,12 +38,12 @@ const Cell = styled.div`
   margin-right: -1px;
 `
 
-function Cells() {
+function Cells(props) {
   let cellColumns = [];
 
   for (let col of grid.columns) {
     cellColumns.push(
-      <Cell key={col} width={col}/>
+      <Cell onClick={props.onToggleTheme} key={col} width={col}/>
     )
   }
 
@@ -63,7 +63,7 @@ function Cells() {
 export default function Grid(props) {
   return (
     <Container>
-      <Cells/>
+      <Cells onToggleTheme={props.onToggleTheme}/>
       {props.children}
     </Container>
   )

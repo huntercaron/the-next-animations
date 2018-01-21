@@ -18,18 +18,37 @@ const Container = styled.div`
 const Text = styled.p`
 `
 
+const MarkerCircle = styled.div`
+  border: 2px solid ${props => props.theme.fg};
+  width: ${props => props.w}px;
+  height: ${props => props.h}px;
+  border-radius: 50%;
+  position: absolute;
+`
+
+function stylePick(theme) {
+  return theme.dark ? 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye' : 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3';
+}
+
 // component
 export default class Map extends React.Component {
   state = {
     viewport: {
-      width: 1000,
-      height: 300,
+      width: 800,
+      height: 600,
       latitude: 43.642690,
       longitude: -79.427036,
-      mapStyle: 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye',
+      mapStyle: stylePick(this.props.theme),
       zoom: 14
     }
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.theme.dark !== this.props.theme.dark) {
+      this.forceUpdate();
+    }
+  }
+
 
   render() {
     return (
@@ -38,11 +57,14 @@ export default class Map extends React.Component {
           <ReactMapGL
             {...this.state.viewport}
             onViewportChange={(viewport) => {
-              viewport.mapStyle = 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye';
+              viewport.mapStyle = stylePick(this.props.theme);
               this.setState({viewport});
             }}>
-            <Marker latitude={43.642690} longitude={-79.427036} offsetLeft={-20} offsetTop={-10}>
-              <div>GLADSTONE</div>
+            <Marker latitude={43.642690} longitude={-79.427036} offsetLeft={-18} offsetTop={-24}>
+              <MarkerCircle
+                w="45"
+                h="45"
+              />
             </Marker>
           </ReactMapGL>
         }
@@ -50,3 +72,5 @@ export default class Map extends React.Component {
     )
   }
 }
+
+// mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3

@@ -15,14 +15,18 @@ const grid = {
 const type = {
   baseSize: '1.2rem',
   smaller: '1rem'
-}
+};
 
 const spacing = {
   padding: {
     smaller: '0.25rem',
-    normal: '0.5rem',
+    normal: '0.6rem',
     bigger: '1rem'
   }
+};
+
+const breakpoints = {
+  mobile: 900
 }
 
 const animations = {
@@ -61,6 +65,4 @@ const animations = {
 };
 
 
-export { grid, type, spacing, animations };
-
-//mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye
+export { grid, type, spacing, animations, breakpoints };

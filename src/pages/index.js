@@ -87,6 +87,7 @@ const EmailInput = styled.input`
   border: none;
   font-size: ${ type.smaller };
 
+
   &:disabled, &:disabled:hover {
     opacity: 0.3;
   }
@@ -99,14 +100,17 @@ const SocialContainer = styled.div`
   display: flex;
   border-top: 1px solid ${props => props.theme.fg};
 `
-const theme = {
+
+const lightTheme = {
   fg: 'black',
-  bg: 'white'
+  bg: 'white',
+  dark: false
 };
 
 const darkTheme = {
   fg: 'white',
-  bg: 'black'
+  bg: 'black',
+  dark: true
 };
 
 const encode = (data) => {
@@ -121,7 +125,8 @@ export default class IntroCSS extends React.Component {
       super(props);
       this.state = {
         email: "",
-        formSubmitted: false
+        formSubmitted: false,
+        theme: lightTheme
       };
   }
 
@@ -141,14 +146,21 @@ export default class IntroCSS extends React.Component {
 
   handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
+  toggleTheme = () => {
+    if (this.state.theme.dark === false)
+      this.setState({ theme: darkTheme });
+    else
+      this.setState({ theme: lightTheme });
+  }
+
   render() {
     return (
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={this.state.theme}>
         <Container>
           <InnerContainer>
             <Statement/>
 
-            <Grid>
+            <Grid onToggleTheme={this.toggleTheme}>
 
               <GridBlock rowStart={0} rowEnd={3} colStart={0} colEnd={4} wAdjust={-3} pad>
                 <H2>
@@ -175,7 +187,7 @@ export default class IntroCSS extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
 
-                  <Map />
+                  <Map theme={this.state.theme}/>
 
                   <EmailContainer>
                     <EmailInput onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email for The Next Updates…"/>

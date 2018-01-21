@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { grid, animations } from '../../utils/constants.js'
+import { grid, animations, spacing } from '../../utils/constants.js'
 
 
 /*
@@ -21,7 +21,6 @@ const GridBlock = styled.div`
   opacity: 0;
   transform-origin: right;
   animation: ${animations.fadeIn} 0.6s 2s ease-in-out forwards;
-  transition: all 250ms ease-out;
 
   > div, > h2, > p {
     transition: opacity 250ms ease-out;
@@ -35,7 +34,7 @@ const GridBlock = styled.div`
 
   border: 1px solid ${props => props.theme.fg};
   ${props => props.borderNo && 'border-' + props.borderNo + ': none;'}
-  ${props => props.pad && 'padding: 0.5rem;'}
+  ${props => props.pad && 'padding: ' + spacing.padding.normal + ';'}
 
   left: calc(${props => {
     let distance = 0;

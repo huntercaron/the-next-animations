@@ -18,8 +18,6 @@ const StatementContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  transition: all 250ms ease-out;
-
 `
 
 const StatementText = styled.h1`

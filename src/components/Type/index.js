@@ -7,9 +7,9 @@ const H1 = styled.div`
 `
 
 const H2 = styled.h2`
-  text-transform: uppercase;
+  ${'' /* text-transform: uppercase; */}
   line-height: 1.2;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-top: -3px;
 `
 
@@ -21,7 +21,7 @@ const H3 = styled.div`
 
 const P = styled.p`
   margin: 0 10% 0 0;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   line-height: 1.3;
   margin-top: -3px;
 `
