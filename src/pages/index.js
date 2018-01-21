@@ -47,18 +47,32 @@ const EmailContainer = styled.div`
 const EmailButton = styled.button`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 2px);
   align-items: center;
   justify-content: center;
   padding-top: 0.25rem;
-  color: ${props => props.theme.fg};
   border: none;
   text-decoration: underline;
+  color: ${props => props.theme.fg};
+  border-right: 1px solid ${props => props.theme.ftg};
   background-color: ${props => props.theme.bg};
   font-size: ${ type.smaller };
+  cursor: pointer;
+
+  &:hover {
+    border-right: 1px solid ${props => props.theme.bg};
+    color: ${props => props.theme.bg};
+    background-color: ${props => props.theme.fg};
+  }
+
+  &:active {
+    color: ${props => props.theme.fg};
+    background-color: ${props => props.theme.bg};
+  }
 `
 
 const EmailInput = styled.input`
+  width: 100%;
   outline: none;
   background-color: ${props => props.theme.bg};
   color: ${props => props.theme.fg};
@@ -116,7 +130,7 @@ export default class IntroCSS extends React.Component {
 
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
-              <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" action="#">
+              <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" action="/">
                 <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
                   <input type="hidden" name="form-name" value="contact" />
 

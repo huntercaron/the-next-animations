@@ -16,6 +16,7 @@ const type = {
 
 const spacing = {
   padding: {
+    smaller: '0.25rem',
     normal: '0.5rem',
     bigger: '1rem'
   }

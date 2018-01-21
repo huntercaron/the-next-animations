@@ -16,6 +16,17 @@ const Container = styled.a`
   #instagram {
     stroke: ${props => props.theme.fg};
   }
+
+  &:hover {
+    border-left: 1px solid ${props => props.theme.fg};
+    color: ${props => props.theme.bg};
+    background-color: ${props => props.theme.fg};
+
+    #instagram {
+      stroke: ${props => props.theme.bg};
+    }
+  }
+
 `
 
 const invertTheme = ({ fg, bg }) => ({
@@ -27,18 +38,18 @@ const invertTheme = ({ fg, bg }) => ({
 // component
 export default function Base(props) {
   return (
-    <ThemeProvider theme={invertTheme}>
+    // <ThemeProvider theme={invertTheme}>
       <Container target="_blank" href="https://www.instagram.com/ysdnthenext/">
-        <svg width="28px" height="28px" viewBox="0 0 30 30" version="1.1" shapeRendering="geometricPrecision">
+        <svg width="30px" height="29px" viewBox="0 0 30 30" version="1.1" shapeRendering="geometricPrecision">
             <g id="Home---Scroll-State" stroke="none" strokeWidth="1.1" fill="none" fillRule="evenodd" transform="translate(-1372.000000, -263.000000)">
                 <g id="instagram" transform="translate(1372.000000, 263.000000)">
                     <rect id="Rectangle" x="0.5" y="0.5" width="29" height="29" rx="5"></rect>
                     <circle id="Oval" cx="15" cy="15" r="8"></circle>
-                    <circle id="Oval-Copy" cx="24.3333333" cy="5" r="1"></circle>
+                    <circle id="Oval-Copy" cx="24.3333333" cy="5" r="1.5"></circle>
                 </g>
             </g>
         </svg>
       </Container>
-    </ThemeProvider>
+    // </ThemeProvider>
   )
 }

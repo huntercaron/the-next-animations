@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { grid, spacing } from '../../utils/constants.js'
 
 // styled components
 const StatementContainer = styled.div`
@@ -7,7 +8,7 @@ const StatementContainer = styled.div`
   height: 100%;
   width: 40%;
   position: relative;
-  padding: 0 0.25rem;
+  padding: 0 ${ spacing.padding.smaller };
   overflow: hidden;
   color: ${props => props.theme.fg};
 
@@ -16,6 +17,10 @@ const StatementContainer = styled.div`
   justify-content: space-between;
 
   transition: all 250ms ease-out;
+
+  &:hover {
+    width: 50%;
+  }
 `
 
 const StatementText = styled.h1`
@@ -23,8 +28,20 @@ const StatementText = styled.h1`
   line-height: 1;
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 3.5rem;
 
-  text-align: ${props => props.right ? "right" : "left"}
+  text-align: left;
+`
+
+const TheNext = styled.h1`
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+  right: ${ spacing.padding.smaller };
+  top: calc(${ grid.rows[0] + grid.rows[1] + grid.rows[2] + grid.rows[4] + 7 }% - 0.45rem);
 `
 
 export default function Statement(props) {
@@ -34,9 +51,9 @@ export default function Statement(props) {
           Announcing
         </StatementText>
 
-        <StatementText right>
+        <TheNext right>
           The Next
-        </StatementText>
+        </TheNext>
 
         <StatementText>
           Gradshow
