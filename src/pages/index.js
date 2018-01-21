@@ -148,7 +148,25 @@ export default class IntroCSS extends React.Component {
       this.state = {
         email: "",
         formSubmitted: false,
-        theme: lightTheme
+        theme: lightTheme,
+        map: {
+          dark: {
+            width: 800,
+            height: 600,
+            latitude: 43.638880,
+            longitude: -79.434236,
+            zoom: 15,
+            mapStyle: 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye',
+          },
+          light: {
+            width: 800,
+            height: 600,
+            latitude: 43.638880,
+            longitude: -79.434236,
+            zoom: 15,
+            mapStyle: 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3',
+          }
+        }
       };
   }
 
@@ -168,6 +186,27 @@ export default class IntroCSS extends React.Component {
 
   handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
+  updateMapData = (lat, long, zoom) => this.setState( prevState => ({
+    map: {
+      dark: {
+        latitude: lat,
+        longitude: long,
+        zoom: zoom,
+        width: 800,
+        height: 600,
+        mapStyle: prevState.map.dark.mapStyle
+      },
+      light: {
+        latitude: lat,
+        longitude: long,
+        zoom: zoom,
+        width: 800,
+        height: 600,
+        mapStyle: prevState.map.light.mapStyle
+      }
+    }
+  }));
+
   toggleTheme = () => {
     if (this.state.theme.dark === false)
       this.setState({ theme: darkTheme });
@@ -176,15 +215,6 @@ export default class IntroCSS extends React.Component {
   }
 
   render() {
-
-    const lightMapStyle = {
-      opacity: this.state.theme.dark ? "1" : "0"
-    };
-
-    const darkMapStyle = {
-      opacity: this.state.theme.dark ? "0" : "1"
-    };
-
     return (
       <ThemeProvider theme={this.state.theme}>
         <Container>
@@ -218,13 +248,15 @@ export default class IntroCSS extends React.Component {
                 <FooterContainer rowStart={6} rowEnd={7} colStart={0} colEnd={2} wAdjust={1}>
 
                     <Map
-                      display={this.state.theme.dark}
-                      theme={'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye'}
+                      display={!this.state.theme.dark}
+                      onViewportChange={this.updateMapData}
+                      viewport={this.state.map.light}
                     />
 
                     <Map
-                      display={!this.state.theme.dark}
-                      theme={'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3'}
+                      display={this.state.theme.dark}
+                      onViewportChange={this.updateMapData}
+                      viewport={this.state.map.dark}
                     />
 
                   <EmailContainer>
