@@ -25,11 +25,13 @@ const StatementContainer = styled.div`
     height: calc(100vh - 1.75rem);
     animation: ${animations.growUp} 0.8s 1s ease-in-out forwards;
     border-bottom: 1px solid ${props => props.theme.fg};
+
+
+    @media not all and (min-resolution:.001dpcm) { @media {
+      height: calc(93vh - ${spacing.padding.bigger});
+    }}
   }
 
-  @media not all and (min-resolution:.001dpcm) { @media {
-    height: calc(93vh - ${spacing.padding.bigger});
-  }}
 `
 
 const StatementText = styled.h1`
