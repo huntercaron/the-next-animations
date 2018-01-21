@@ -12,6 +12,8 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  animation-delay: 0s !important;
+  ${props => props.transitioned && 'animation-delay: 0s !important;'}
 `
 
 const Text = styled.p`
@@ -43,27 +45,29 @@ export default class Map extends React.Component {
       height: 600,
       latitude: 43.638880,
       longitude: -79.434236,
-      mapStyle: stylePick(this.props.theme),
-      zoom: 15
+      mapStyle: this.props.theme,
+      zoom: 15,
+      transitioned: false
     }
   };
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.theme.dark !== this.props.theme.dark) {
-      this.forceUpdate();
-    }
+    this.setState({
+      transitioned: true
+    })
   }
 
 
   render() {
+    console.log(this.props);
     return (
-      <Container>
+      <Container transitioned={this.state.transitioned}>
         <InnerContainer>
           {(process.env.MAP === 'true') &&
             <ReactMapGL
               {...this.state.viewport}
               onViewportChange={(viewport) => {
-                viewport.mapStyle = stylePick(this.props.theme);
+                viewport.mapStyle = this.props.theme;
                 this.setState({viewport});
               }}>
               <Marker latitude={43.642690} longitude={-79.427036} offsetLeft={-18} offsetTop={-24}>

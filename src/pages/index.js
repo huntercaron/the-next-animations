@@ -198,7 +198,14 @@ export default class IntroCSS extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <FooterContainer rowStart={6} rowEnd={7} colStart={0} colEnd={2} wAdjust={1}>
 
-                  <Map theme={this.state.theme}/>
+                  {this.state.theme.dark ? (
+                    <Map theme={'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye'}/>
+                  ):(
+                    <div>
+                    <Map theme={'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3'}/>
+                    </div>
+                  )}
+
 
                   <EmailContainer>
                     <EmailInput onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email…"/>
