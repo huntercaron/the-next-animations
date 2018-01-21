@@ -44,7 +44,7 @@ function Colon() {
   )
 }
 
-class CountdownTimer extends React.Component {
+export default class Timer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -151,14 +151,6 @@ class CountdownTimer extends React.Component {
 	}
 }
 
-CountdownTimer.propTypes = {
+Timer.propTypes = {
 	endDate: PropTypes.object.isRequired
 };
-
-export default function Timer(props) {
-	return (
-		<Container {...props}>
-			<CountdownTimer endDate={moment(props.countdownDate)} />
-		</Container>
-	);
-}

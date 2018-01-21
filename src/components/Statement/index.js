@@ -49,7 +49,7 @@ const TheNext = styled.h1`
   margin-top: 0;
   margin-bottom: 0;
   right: ${ spacing.padding.smaller };
-  top: calc(${ grid.rows[0] + grid.rows[1] + grid.rows[2] + grid.rows[4] + 7 }% - 0.45rem);
+  top: calc(${ grid.rows[0] + grid.rows[1] + grid.rows[2] + grid.rows[4] + 5.3 }% - 0.4rem);
 
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 3rem;

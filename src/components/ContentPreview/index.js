@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import GridBlock from '../GridBlock'
+import Timer from '../Timer'
 import { grid, spacing, breakpoints } from '../../utils/constants.js'
 import { H2 } from '../Type'
 
@@ -28,14 +29,18 @@ const Text = styled.p`
 `
 
 const ProjectContainer = styled.div`
-  width: calc(${grid.columns[0] + grid.columns[1]}% - 1px);
+  width: calc(${grid.columns[0] + grid.columns[1]}% - 2px);
   height: 100%;
   flex-shrink: 0;
   border-right: 1px solid ${props => props.theme.fg};
   padding: ${ spacing.padding.normal };
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media (max-width: 1209px) {
     width: calc(${grid.columns[0] + grid.columns[1]}% - 1px);
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: calc(${grid.columns[0] + grid.columns[1]}% - 2px);
   }
 `
 
@@ -48,6 +53,7 @@ const ArrowContainer = styled.div`
   height: 100%;
   border-left: 1px solid ${props => props.theme.fg};
   position: absolute;
+  background-color: pink;
   right: 0;
   top: 0;
 `
@@ -76,17 +82,17 @@ export default class ContentPreview extends React.Component {
         <InnerContainer>
           <Project
             disabled={true}
-            title="Introductions"
+            title="?&thinsp;?&thinsp;?"
           />
 
           <Project
             disabled={true}
-            title="Publication 002"
+            title="?&thinsp;?&thinsp;?"
           />
 
           <Project
             disabled={true}
-            title="Microsite 2"
+            title="?&thinsp;?&thinsp;?"
           />
 
 

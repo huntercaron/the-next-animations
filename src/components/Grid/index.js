@@ -42,6 +42,10 @@ const Cell = styled.div`
   height: 100%;
   border-left: 1px solid ${props => props.theme.fg};
   margin-right: -1px;
+
+  &:hover {
+    background-color: ${props => props.theme.fg};
+  }
 `
 
 function Cells(props) {

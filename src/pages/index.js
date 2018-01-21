@@ -191,7 +191,7 @@ export default class IntroCSS extends React.Component {
                 colStart={4}
                 colEnd={6}
                 wAdjust={5}
-                countdownDate = "2018-01-22 12:00" />
+                countdownDate = "2018-04-11 8:00" />
 
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
@@ -201,7 +201,7 @@ export default class IntroCSS extends React.Component {
                   <Map theme={this.state.theme}/>
 
                   <EmailContainer>
-                    <EmailInput onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email for The Next Updates…"/>
+                    <EmailInput onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email…"/>
                   </EmailContainer>
 
                 </FooterContainer>

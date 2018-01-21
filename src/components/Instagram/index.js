@@ -5,7 +5,7 @@ import instagramSvg from '../../assets/images/instagram.svg'
 // styled components
 const Container = styled.a`
   height: 70px;
-  width: 70px;
+  width: 73px;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
@@ -13,6 +13,7 @@ const Container = styled.a`
   border-left: 1px solid ${props => props.theme.bg};
   background-color: ${props => props.theme.bg};
   padding-bottom: 2px;
+  padding-right: 3px;
 
   #instagram {
     stroke: ${props => props.theme.fg};
