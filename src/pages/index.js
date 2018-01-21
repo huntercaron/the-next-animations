@@ -40,10 +40,11 @@ const InnerContainer = styled.div`
 const FooterContainer = GridBlock.extend`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 `
 
 const FooterInnerContainer = styled.div`
+  height: 100%;
   padding: 0.5rem;
 `
 
@@ -55,6 +56,7 @@ const EmailContainer = styled.div`
   display: flex;
   background-color: ${props => props.theme.bg};
   padding-left: ${ spacing.padding.bigger };
+  z-index: 2;
 `
 
 const EmailButton = styled.button`
@@ -99,6 +101,7 @@ const EmailInput = styled.input`
   color: ${props => props.theme.fg};
   border: none;
   font-size: ${ type.smaller };
+  position: relative;
 
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 1.3rem;
@@ -118,7 +121,6 @@ const SocialContainer = styled.div`
 `
 
 const MapContainer = styled.div`
-  animation: ${animations.fadeIn} 0.3s 0s ease-in-out forwards;
 `
 
 const lightTheme = {
@@ -174,6 +176,15 @@ export default class IntroCSS extends React.Component {
   }
 
   render() {
+
+    const lightMapStyle = {
+      opacity: this.state.theme.dark ? "1" : "0"
+    };
+
+    const darkMapStyle = {
+      opacity: this.state.theme.dark ? "0" : "1"
+    };
+
     return (
       <ThemeProvider theme={this.state.theme}>
         <Container>
@@ -206,19 +217,15 @@ export default class IntroCSS extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <FooterContainer rowStart={6} rowEnd={7} colStart={0} colEnd={2} wAdjust={1}>
 
-                  {this.state.theme.dark ? (
-                    <MapContainer>
-                      <MapContainer>
-                        <Map theme={'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye'}/>
-                      </MapContainer>
+                    <Map
+                      display={this.state.theme.dark}
+                      theme={'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye'}
+                    />
 
-                    </MapContainer>
-                  ):(
-                    <MapContainer>
-                      <Map theme={'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3'}/>
-                    </MapContainer>
-                  )}
-
+                    <Map
+                      display={!this.state.theme.dark}
+                      theme={'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3'}
+                    />
 
                   <EmailContainer>
                     <EmailInput onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email…"/>

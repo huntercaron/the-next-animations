@@ -10,11 +10,15 @@ const Container = styled.div`
     display: none !important;
   }
 
+  position: absolute;
+  top: 0;
+  right: 0;
+
   width: 100%;
   height: 100%;
   overflow: hidden;
   animation: ${animations.fadeIn} 0.3s 0s ease-in-out forwards;
-
+  z-index: ${props => props.display ? "1" : "0"};
 `
 
 const Text = styled.p`
@@ -32,6 +36,10 @@ const InnerContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+
+  div {
+    opacity: ${props => props.display ? "1" : "0"};
+  }
 `
 
 // component
@@ -50,14 +58,15 @@ export default class Map extends React.Component {
 
   render() {
     return (
-      <Container transitioned={this.state.transitioned}>
-        <InnerContainer>
+      <Container transitioned={this.state.transitioned} display={this.props.display}>
+        <InnerContainer display={this.props.display}>
           {(process.env.MAP === 'true') &&
             <ReactMapGL
               {...this.state.viewport}
               onViewportChange={(viewport) => {
                 viewport.mapStyle = this.props.theme;
-                this.setState({viewport});
+                if (this.props.display)
+                  this.setState({viewport});
               }}>
               <Marker latitude={43.642690} longitude={-79.427036} offsetLeft={-18} offsetTop={-24}>
               </Marker>
