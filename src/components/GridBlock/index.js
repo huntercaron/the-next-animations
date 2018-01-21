@@ -20,7 +20,7 @@ const GridBlock = styled.div`
 
   opacity: 0;
   transform-origin: right;
-  animation: ${animations.fadeIn} 0.8s 2s ease-in-out forwards;
+  animation: ${animations.fadeIn} 0.6s 2s ease-in-out forwards;
   transition: all 250ms ease-out;
 
   > div, h2, p {

@@ -99,6 +99,30 @@ const darkTheme = {
 
 // page component
 export default class IntroCSS extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        email: "",
+        formSubmitted: false
+      };
+  }
+
+  handleSubmit = (e) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state })
+    })
+    .then(() => this.setState({
+      formSubmitted: true
+    }))
+    .catch(error => alert(error));
+
+    e.preventDefault();
+  };
+
+  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
   render() {
     return (
       <ThemeProvider theme={darkTheme}>
@@ -130,14 +154,13 @@ export default class IntroCSS extends React.Component {
 
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
-              <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" action="/">
+              <form onSubmit={this.handleSubmit}>
                 <FooterContainer rowStart={6} colStart={0} colEnd={2} wAdjust={1}>
-                  <input type="hidden" name="form-name" value="contact" />
 
                   <Map />
 
                   <EmailContainer>
-                    <EmailInput type="email" name="email" placeholder="Enter Email…"/>
+                    <EmailInput onChange={this.handleChange} type="email" name="email" placeholder="Enter Email…"/>
                   </EmailContainer>
 
                 </FooterContainer>

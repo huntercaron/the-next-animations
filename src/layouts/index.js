@@ -19,6 +19,7 @@ import NeueHaasGrotDispItalic_eot from "../assets/fonts/NeueHaasGrotDisp-56Itali
 import NeueHaasGrotDispItalic_woff from "../assets/fonts/NeueHaasGrotDisp-56Italic-Web.woff"
 import NeueHaasGrotDispItalic_woff2 from "../assets/fonts/NeueHaasGrotDisp-56Italic-Web.woff2"
 
+import facebookCard from "../assets/images/facebook_card.png"
 
 /*
   Layout File
@@ -38,10 +39,12 @@ const Container = styled.div`
 const TemplateWrapper = ({ children }) => (
   <Container>
     <Helmet
-      title="the-next-animations"
+      title="the-next-gradshow"
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
+        { name: 'author', content: 'York/Sheridan Design' },
+        { property: 'og:image', content: facebookCard }
       ]}
     />
 
