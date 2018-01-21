@@ -33,7 +33,7 @@ const P = styled.p`
 
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 1.4rem;
-    margin-right: 1.5rem;
+    margin-right: 1.3rem;
   }
 `
 
