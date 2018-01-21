@@ -21,12 +21,12 @@ const spacing = {
   padding: {
     smaller: '0.25rem',
     normal: '0.6rem',
-    bigger: '1rem'
+    bigger: '0.75rem'
   }
 };
 
 const breakpoints = {
-  mobile: 900
+  mobile: '900px'
 }
 
 const animations = {
@@ -60,6 +60,14 @@ const animations = {
     }
     to {
       width: 40%;
+    }
+  `,
+  growUp: keyframes`
+    from {
+      calc(95vh - ${spacing.padding.bigger})
+    }
+    to {
+      height: 200px;
     }
   `
 };

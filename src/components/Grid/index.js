@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { grid } from '../../utils/constants.js'
+import { grid, animations, breakpoints } from '../../utils/constants.js'
 
 // styled components
 const Container = styled.div`
@@ -8,6 +8,12 @@ const Container = styled.div`
 	width: 100%;
   flex: 1;
   position: relative;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    opacity: 0;
+    animation: ${animations.fadeIn} 0.8s 1s ease-in-out forwards;
+    border-right: 1px solid ${props => props.theme.fg};
+  }
 `
 
 const Text = styled.p`

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { grid, animations, spacing } from '../../utils/constants.js'
+import { grid, animations, spacing, breakpoints } from '../../utils/constants.js'
 
 
 /*

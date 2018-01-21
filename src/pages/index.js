@@ -8,7 +8,7 @@ import ContentPreview from '../components/ContentPreview'
 import Map from '../components/Map'
 import Instagram from '../components/Instagram'
 import { P, H2, H3, Link } from '../components/Type'
-import { type, spacing, animations } from '../utils/constants.js'
+import { type, spacing, animations, breakpoints } from '../utils/constants.js'
 
 const Container = styled.div`
   padding: 0.75rem;
@@ -23,6 +23,13 @@ const InnerContainer = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    height: 1100px;
+    border-left: none;
+    border-right: none;
+  }
 `
 
 const FooterContainer = GridBlock.extend`
