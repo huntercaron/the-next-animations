@@ -6,8 +6,17 @@ import { H2 } from '../Type'
 
 // styled components
 const Container = GridBlock.extend`
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+`
+
+const InnerContainer = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
+  padding-bottom: 15px; /*This would hide the scroll bar of the bottom if there is one*/
 `
 
 const Text = styled.p`
@@ -28,7 +37,7 @@ const ProjectTitle = H2.extend`
 function Project(props) {
   return(
     <ProjectContainer {...props}>
-      <ProjectTitle {...props}>Introductions</ProjectTitle>
+      <ProjectTitle {...props}>{props.title}</ProjectTitle>
     </ProjectContainer>
   )
 }
@@ -38,8 +47,22 @@ export default class ContentPreview extends React.Component {
   render() {
     return (
       <Container {...this.props}>
-        <Project disabled={true}/>
-        <Project disabled={true}/>
+        <InnerContainer>
+          <Project
+            disabled={true}
+            title="Introductions"
+          />
+
+          <Project
+            disabled={true}
+            title="Publication 002"
+          />
+
+          <Project
+            disabled={true}
+            title="Microsite 2"
+          />
+        </InnerContainer>
       </Container>
     )
   }

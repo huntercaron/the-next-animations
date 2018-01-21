@@ -121,7 +121,7 @@ export default class IntroCSS extends React.Component {
       super(props);
       this.state = {
         email: "",
-        formSubmitted: true
+        formSubmitted: false
       };
   }
 

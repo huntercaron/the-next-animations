@@ -108,19 +108,6 @@ injectGlobal`
     font-weight: 400;
   }
 
-  body::-webkit-scrollbar {
-    width: 1em;
-  }
-
-  body::-webkit-scrollbar-track {
-      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
-  }
-
   @font-face {
     font-family: 'Haas Grot Text';
     src: url(${NeueHaasGrotTextRoman_eot});

@@ -26,7 +26,7 @@ export default class Map extends React.Component {
       height: 300,
       latitude: 43.642690,
       longitude: -79.427036,
-      mapStyle: 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3',
+      mapStyle: 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye',
       zoom: 14
     }
   };
@@ -38,7 +38,7 @@ export default class Map extends React.Component {
           <ReactMapGL
             {...this.state.viewport}
             onViewportChange={(viewport) => {
-              viewport.mapStyle = 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3';
+              viewport.mapStyle = 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye';
               this.setState({viewport});
             }}>
             <Marker latitude={43.642690} longitude={-79.427036} offsetLeft={-20} offsetTop={-10}>
