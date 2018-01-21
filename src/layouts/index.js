@@ -44,7 +44,7 @@ const TemplateWrapper = ({ children }) => (
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
         { name: 'author', content: 'York/Sheridan Design' },
-        { property: 'og:image', content: facebookCard }
+        { property: 'og:image', content: 'http://animating.thenext.website' + facebookCard }
       ]}
     />
 
