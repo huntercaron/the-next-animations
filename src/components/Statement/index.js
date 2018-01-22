@@ -22,7 +22,7 @@ const StatementContainer = styled.div`
   @media (max-width: ${breakpoints.mobile}) {
     border-left: 1px solid ${props => props.theme.fg};
     border-right: 1px solid ${props => props.theme.fg};
-    height: calc(100vh - 1.75rem);
+    height: calc(95vh - ${spacing.padding.bigger});
     animation: ${animations.growUp} 0.8s 1s ease-in-out forwards;
     border-bottom: 1px solid ${props => props.theme.fg};
 
