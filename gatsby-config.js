@@ -16,7 +16,13 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
-     {
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-60215266-13"
+      },
+    },
+    {
        resolve: `gatsby-transformer-remark`,
        options: {
          plugins: [
@@ -37,7 +43,7 @@ module.exports = {
            'gatsby-remark-smartypants',
          ],
        },
-     },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-netlify`

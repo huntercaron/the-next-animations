@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import GridBlock from '../GridBlock'
 import Timer from '../Timer'
+import moment from 'moment'
 import { grid, spacing, breakpoints } from '../../utils/constants.js'
 import { H2 } from '../Type'
 
@@ -21,6 +22,7 @@ const InnerContainer = styled.div`
   height: 100%;
   display: flex;
   overflow-x: auto;
+  padding-right: -${grid.columns[5] + grid.columns[4]};
   padding-bottom: 15px !important; /*This would hide the scroll bar of the bottom if there is one*/
 `
 
@@ -28,13 +30,14 @@ const Text = styled.p`
 `
 
 const ProjectContainer = styled.div`
-  width: calc(${grid.columns[0] + grid.columns[1]}% - 2px);
+  width: calc(${props => grid.columns[0] + grid.columns[1] + (props.extra || 0)}% - 2px);
   height: 100%;
   flex-shrink: 0;
+  flex-grow: 0;
   border-right: 1px solid ${props => props.theme.fg};
   padding: ${ spacing.padding.normal };
 
-  @media (max-width: 1209px) {
+  ${'' /* @media (max-width: 1209px) {
     width: calc(${grid.columns[0] + grid.columns[1]}% - 1px);
   }
 
@@ -44,7 +47,7 @@ const ProjectContainer = styled.div`
 
   @media (max-width: 360px) {
     width: calc(${grid.columns[0] + grid.columns[1]}% - 2px);
-  }
+  } */}
 
 
 `
@@ -60,7 +63,11 @@ const ArrowContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  cursor: pointer;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   &:hover {
     background-color: ${props => props.theme.fg};
@@ -72,9 +79,16 @@ const ArrowGridContainer = GridBlock.extend`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `
 
 const ArrowGridContainerLeft = GridBlock.extend`
+  animation: none;
+  transition: opacity 200ms ease-in-out;
+  opacity: ${props => (props.scroll > 0) ? "1" : "0"} !important;
+  pointer-events: ${props => (props.scroll > 0) ? "auto" : "none"};
+  cursor: ${props => (props.scroll > 0) ? "pointer" : "auto"} !important;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,6 +120,7 @@ function Project(props) {
   return(
     <ProjectContainer {...props}>
       <ProjectTitle {...props}>{props.title}</ProjectTitle>
+      <Timer endDate={moment("2018-04-11 08:00")}/>
     </ProjectContainer>
   )
 }
@@ -121,22 +136,49 @@ function NavArrow(props) {
 
 // component
 export default class ContentPreview extends React.Component {
-  handleScroll = (e) => {
+  state = {
+    scroll: 0,
+    projectWidth: 200
+  }
 
+  handleScroll = (e) => {
+    this.setState({
+      scroll: this.hScroll.children[0].scrollLeft
+    })
+  }
+
+  onComponentDidMount() {
+    this.setState({
+      scroll: this.hScroll.children[0].scrollLeft,
+      projectWidth: this.project.offsetWidth,
+      arrowWidth: this.arrow.offsetWidth
+    })
+  }
+
+  handleNavArrows = (direction) => {
+    switch (direction) {
+      case 'FORWARDS':
+        this.hScroll.children[0].scrollLeft = this.hScroll.children[0].scrollLeft + this.project.offsetWidth - this.arrow.offsetWidth + 1;
+        break;
+      case 'BACKWARDS':
+      this.hScroll.children[0].scrollLeft = this.hScroll.children[0].scrollLeft - this.project.offsetWidth - this.arrow.offsetWidth;
+        break;
+    }
   }
 
   render() {
     return (
       <Container>
-        <ArrowGridContainerLeft rowStart={5} rowEnd={6} colStart={4} colEnd={6} wAdjust={5}>
-          <NavArrow left/>
+        <ArrowGridContainerLeft scroll={this.state.scroll} rowStart={5} rowEnd={6} colStart={4} colEnd={6} wAdjust={5}>
+          <NavArrow left onClick={() => this.handleNavArrows('BACKWARDS')}/>
         </ArrowGridContainerLeft>
 
 
-        <ContentContainer {...this.props} onScroll={this.handleScroll}>
+        <ContentContainer {...this.props} innerRef={(scroll) => { this.hScroll = scroll; }}>
 
-          <InnerContainer>
+          <InnerContainer onScroll={this.handleScroll}>
             <Project
+              innerRef={(project) => { this.project = project; }}
               disabled={true}
               title="?&thinsp;?&thinsp;?"
             />
@@ -149,13 +191,14 @@ export default class ContentPreview extends React.Component {
             <Project
               disabled={true}
               title="?&thinsp;?&thinsp;?"
+              extra={grid.columns[5] + grid.columns[4]}
             />
 
           </InnerContainer>
         </ContentContainer>
 
-        <ArrowGridContainer rowStart={5} rowEnd={6} colStart={4} colEnd={6} wAdjust={5}>
-          <NavArrow />
+        <ArrowGridContainer  innerRef={(arrow) => { this.arrow = arrow; }}  rowStart={5} rowEnd={6} colStart={4} colEnd={6} wAdjust={5}>
+          <NavArrow onClick={() => this.handleNavArrows('FORWARDS')}/>
         </ArrowGridContainer>
       </Container>
     )

@@ -43,7 +43,6 @@ const Cell = styled.div`
   border-left: 1px solid ${props => props.theme.fg};
   margin-right: -1px;
 
-
   &:hover {
     background-color: ${props => props.theme.fg};
 
