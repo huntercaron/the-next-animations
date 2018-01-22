@@ -189,17 +189,17 @@ export default class IntroCSS extends React.Component {
   updateMapData = (lat, long, zoom) => this.setState( prevState => ({
     map: {
       dark: {
-        latitude: lat,
-        longitude: long,
-        zoom: zoom,
+        latitude: this.state.theme.dark ? lat : prevState.map.dark.latitude,
+        longitude: this.state.theme.dark ? long : prevState.map.dark.longitude,
+        zoom: this.state.theme.dark ? zoom : prevState.map.dark.zoom,
         width: 800,
         height: 600,
         mapStyle: prevState.map.dark.mapStyle
       },
       light: {
-        latitude: lat,
-        longitude: long,
-        zoom: zoom,
+        latitude: !this.state.theme.dark ? lat : prevState.map.dark.latitude,
+        longitude: !this.state.theme.dark ? long : prevState.map.dark.longitude,
+        zoom: !this.state.theme.dark ? zoom : prevState.map.dark.zoom,
         width: 800,
         height: 600,
         mapStyle: prevState.map.light.mapStyle
@@ -209,9 +209,49 @@ export default class IntroCSS extends React.Component {
 
   toggleTheme = () => {
     if (this.state.theme.dark === false)
-      this.setState({ theme: darkTheme });
+      this.setState( prevState => ({
+        theme: darkTheme,
+        map: {
+          dark: {
+            latitude: prevState.map.light.latitude,
+            longitude: prevState.map.light.longitude,
+            zoom: prevState.map.light.zoom,
+            width: 800,
+            height: 600,
+            mapStyle: prevState.map.dark.mapStyle
+          },
+          light: {
+            latitude: prevState.map.light.latitude,
+            longitude: prevState.map.light.longitude,
+            zoom: prevState.map.light.zoom,
+            width: 800,
+            height: 600,
+            mapStyle: prevState.map.light.mapStyle
+          }
+        }
+      }));
     else
-      this.setState({ theme: lightTheme });
+      this.setState( prevState => ({
+        theme: lightTheme,
+        map: {
+          dark: {
+            latitude: prevState.map.dark.latitude,
+            longitude: prevState.map.dark.longitude,
+            zoom: prevState.map.dark.zoom,
+            width: 800,
+            height: 600,
+            mapStyle: prevState.map.dark.mapStyle
+          },
+          light: {
+            latitude: prevState.map.dark.latitude,
+            longitude: prevState.map.dark.longitude,
+            zoom: prevState.map.dark.zoom,
+            width: 800,
+            height: 600,
+            mapStyle: prevState.map.light.mapStyle
+          }
+        }
+      }));
   }
 
   render() {
