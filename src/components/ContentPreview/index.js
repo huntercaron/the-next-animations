@@ -109,6 +109,13 @@ const ArrowContainer = styled.div`
     background-color: ${props => props.theme.fg};
     color: ${props => props.theme.bg};
   }
+
+  @media (hover:none), (hover:on-demand) {
+    &:hover {
+      background-color: ${props => props.theme.bg};
+      color: ${props => props.theme.fg};
+    }
+  }
 `
 
 const ArrowGridContainer = GridBlock.extend`
@@ -128,11 +135,11 @@ const ArrowGridContainerLeft = GridBlock.extend`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 0;
+  border-left: none;
   border-right: 1px solid ${props => props.theme.fg};
+  margin-left: 1px;
 
-  left: 2px;
-  width: ${grid.columns[5] + grid.columns[4]};
+  width: calc(${grid.columns[5] + grid.columns[4]}% + 5px);
   z-index: 2;
 `
 
@@ -146,9 +153,6 @@ const ArrowGridContainerLeft = GridBlock.extend`
 // `
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 `
 
@@ -234,7 +238,7 @@ export default class ContentPreview extends React.Component {
   render() {
     return (
       <Container>
-        <ArrowGridContainerLeft scroll={this.state.scroll} rowStart={5} rowEnd={6} colStart={4} colEnd={6} wAdjust={5}>
+        <ArrowGridContainerLeft scroll={this.state.scroll} rowStart={5} rowEnd={6}>
           <NavArrow left onClick={() => this.handleNavArrows('BACKWARDS')}/>
         </ArrowGridContainerLeft>
 

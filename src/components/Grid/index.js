@@ -47,13 +47,22 @@ const Cell = styled.div`
   &:hover {
     background-color: ${props => props.theme.fg};
     div {
-
       background-color: ${props => props.theme.fg};
+    }
+  }
+
+  @media (hover:none), (hover:on-demand) {
+    &:hover {
+      background-color: ${props => props.theme.bg};
+
+      div {
+        background-color: ${props => props.theme.bg};
+      }
     }
   }
 `
 const InnerCell = styled.div`
-  width: 123%;
+  width: 140%;
   height: 100%;
 `
 
