@@ -44,16 +44,17 @@ const TemplateWrapper = ({ children }) => (
       meta={[
         { name: 'description', content: 'Graduate Design Show byYork University/Sheridan College' },
         { name: 'keywords', content: 'York University, Sheridan College, ysdn, design, york, sheridan, the next, the next gradshow' },
-        { name: 'author', content: 'York University/Sheridan College Joint Program in Design' },
-        { name: 'og:url', content: 'http://announcing.thenext.website' },
-        { name: 'og:type', content: 'website' },
-        { name: 'og:description', content: 'Graduate Design Show by York University/Sheridan College' },
+        { property: 'author', content: 'York University/Sheridan College Joint Program in Design' },
+        { property: 'og:url', content: 'http://announcing.thenext.website' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: 'THE NEXT' },
+        { property: 'og:description', content: 'Graduate Design Show by York University/Sheridan College' },
         { property: 'og:image', content: 'http://announcing.thenext.website' + facebookCard },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'THE NEXT' },
-        { name: 'twitter:description', content: 'Graduate Design Show byYork University/Sheridan College' },
-        { name: 'twitter:image', content: 'http://announcing.thenext.website' + twitterCard },
-        { name: 'twitter:image:alt', content: 'THE NEXT' },
+        { property: 'twitter:card', content: 'summary_large_image' },
+        { property: 'twitter:title', content: 'THE NEXT' },
+        { property: 'twitter:description', content: 'Graduate Design Show byYork University/Sheridan College' },
+        { property: 'twitter:image', content: 'http://announcing.thenext.website' + twitterCard },
+        { property: 'twitter:image:alt', content: 'THE NEXT' },
       ]}
     />
 
