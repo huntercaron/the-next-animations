@@ -72,24 +72,40 @@ const animations = {
   `,
   starScale: keyframes`
     0% {
-      width: 30%;
-    }
-    20% {
       width: 60%;
     }
+    20% {
+      width: 150%;
+    }
     40% {
-      width: 120%;
-    }
-    60% {
-      width: 180%;
-    }
-    80% {
-      width: 240%;
-    }
-    100% {
       width: 300%;
     }
-  `
+    60% {
+      width: 600%;
+    }
+    80% {
+      width: 1100%;
+    }
+    100% {
+      width: 900%;
+    }
+  `,
+  show: keyframes`
+    from {
+      visibility: hidden;
+    }
+    to {
+      visibility: visible;
+    }
+  `,
+  showBg: keyframes`
+    from {
+      background-color: ${props => props.theme.bg};
+    }
+    to {
+      background-color: ${props => props.theme.fg};
+    }
+  `,
 };
 
 

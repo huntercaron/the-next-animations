@@ -45,6 +45,7 @@ const StatementText = styled.h1`
   margin-bottom: 0;
   font-size: 3.5rem;
   text-align: left;
+  z-index: 1;
 
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 3rem;
@@ -58,8 +59,11 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 8%;
-  z-index: 3;
+  padding-bottom: 13%;
+  z-index: 0;
+  visibility: hidden;
+
+  animation: ${animations.show} 1s 2s ease-in-out forwards;
 
   .image {
     transition: 100ms ease-out;

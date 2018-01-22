@@ -147,6 +147,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `
 
 Math.easeInOutQuad = function (t, b, c, d) {

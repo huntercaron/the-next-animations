@@ -92,6 +92,10 @@ const EmailButton = styled.button`
     text-decoration: none;
   }
 
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1.1rem;
+  }
+
 `
 
 const EmailInput = styled.input`
@@ -341,7 +345,7 @@ export default class IntroCSS extends React.Component {
                   <SocialContainer>
 
                     <EmailButton disabled={this.state.formSubmitted} type="submit"  onMouseEnter={() => this.handleStatement("Get", "Updates")} onMouseLeave={() => this.resetStatement()}>
-                      {this.state.formSubmitted ? 'We\'ll Update You ✔' : 'Get Updates'}
+                      {this.state.formSubmitted ? 'Got It ✔' : 'Get Updates'}
                     </EmailButton>
 
                     <Instagram onMouseEnter={() => this.handleStatement("Follow", "Instagram")} onMouseLeave={() => this.resetStatement()}/>
@@ -365,7 +369,7 @@ export const query = graphql`
   query ImageQuery {
     file(relativePath: { eq: "assets/images/the-next-star.png" }) {
       childImageSharp {
-        sizes(maxWidth: 1000) {
+        sizes(maxWidth: 2000) {
           ...GatsbyImageSharpSizes_withWebp_tracedSVG
         }
       }
