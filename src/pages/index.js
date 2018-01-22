@@ -297,7 +297,7 @@ export default class IntroCSS extends React.Component {
               </GridBlock>
 
               <GridBlock rowStart={3} rowEnd={5} colStart={0} colEnd={2} mColEnd={4} wAdjust={-1} mWAjust={1} pad  onMouseEnter={() => this.handleStatement("About", "Graduates")} onMouseLeave={() => this.resetStatement()}>
-                <P>Adapt to change and become the future. The Next Graduate Design Show brought to you by York/Sheridan Design is an encapsulation of the milestones by the students within the past four years. Bringing together the students, industry and the public, this showcase is an opportunity to celebrate our graduating class and highlight our growth and ambition, with no foreseeable end.</P>
+                <P>Adapt to change and become the future. The Next Design Grad Show captures the milestones and achievements of students over the course of their undergraduate degree. Bringing together the students, industry and public, this showcase is an opportunity to celebrate our graduating class and highlight our continuous growth and ambition.</P>
               </GridBlock>
 
               <GridTimer
