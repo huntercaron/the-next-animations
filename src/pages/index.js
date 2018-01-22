@@ -291,7 +291,7 @@ export default class IntroCSS extends React.Component {
 
               <GridBlock rowStart={0} rowEnd={3} colStart={0} colEnd={4} wAdjust={-3} pad onMouseEnter={() => this.handleStatement(" ", " ")} onMouseLeave={() => this.resetStatement()}>
                 <H2>
-                  Graduate Design Show by<br/>
+                  Design Grad Show by<br/>
                   York University/Sheridan College
                 </H2>
               </GridBlock>
