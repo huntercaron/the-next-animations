@@ -5,7 +5,10 @@ import instagramSvg from '../../assets/images/instagram.svg'
 // styled components
 const Container = styled.a`
   height: 70px;
-  width: 73px;
+  flex: 1;
+  max-width: 73px;
+  padding: 0 0.9rem;
+
   flex-shrink: 0;
   display: flex;
   justify-content: center;
@@ -42,10 +45,10 @@ export default function Base(props) {
   return (
     // <ThemeProvider theme={invertTheme}>
       <Container target="_blank" href="https://www.instagram.com/ysdnthenext/" {...props}>
-        <svg width="30px" height="34px" viewBox="0 0 30 30" version="1.1" shapeRendering="geometricPrecision">
+        <svg width="31px" height="34px" viewBox="0 0 31 30" version="1.1" shapeRendering="geometricPrecision">
             <g id="Home---Scroll-State" stroke="none" strokeWidth="1.1" fill="none" fillRule="evenodd" transform="translate(-1373.000000, -263.000000)">
                 <g id="instagram" transform="translate(1372.000000, 263.000000)">
-                    <rect id="Rectangle" x="1.4" y="1" width="29" height="29" rx="5"></rect>
+                    <rect id="Rectangle" x="1.6" y="1" width="29" height="29" rx="5"></rect>
                     <circle id="Oval" cx="15.8" cy="15.5" r="8"></circle>
                     <circle id="Oval-Copy" cx="24.9" cy="5.5" r="1.5"></circle>
                 </g>

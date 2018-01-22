@@ -64,7 +64,7 @@ const animations = {
   `,
   growUp: keyframes`
     from {
-      calc(95vh - ${spacing.padding.bigger})
+      height: inherit;
     }
     to {
       height: 200px;
