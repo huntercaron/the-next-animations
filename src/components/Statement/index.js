@@ -71,7 +71,7 @@ export default function Statement(props) {
   return (
     <StatementContainer>
         <StatementText>
-          Announcing
+          {props.verb || "Announcing"}
         </StatementText>
 
         <TheNext right>
@@ -79,7 +79,7 @@ export default function Statement(props) {
         </TheNext>
 
         <StatementText>
-          Gradshow
+          {props.noun || "Gradshow"}
         </StatementText>
     </StatementContainer>
   )

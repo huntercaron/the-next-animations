@@ -41,7 +41,7 @@ const invertTheme = ({ fg, bg }) => ({
 export default function Base(props) {
   return (
     // <ThemeProvider theme={invertTheme}>
-      <Container target="_blank" href="https://www.instagram.com/ysdnthenext/">
+      <Container target="_blank" href="https://www.instagram.com/ysdnthenext/" {...props}>
         <svg width="30px" height="34px" viewBox="0 0 30 30" version="1.1" shapeRendering="geometricPrecision">
             <g id="Home---Scroll-State" stroke="none" strokeWidth="1.1" fill="none" fillRule="evenodd" transform="translate(-1373.000000, -263.000000)">
                 <g id="instagram" transform="translate(1372.000000, 263.000000)">

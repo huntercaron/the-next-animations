@@ -46,7 +46,7 @@ const InnerContainer = styled.div`
 export default class Map extends React.Component {
   render() {
     return (
-      <Container displayMap={this.props.displayMap}>
+      <Container displayMap={this.props.displayMap} {...this.props}>
         <InnerContainer displayMap={this.props.displayMap}>
           {(process.env.MAP === 'true') &&
             <ReactMapGL

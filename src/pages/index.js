@@ -145,10 +145,13 @@ const encode = (data) => {
 export default class IntroCSS extends React.Component {
   constructor(props) {
       super(props);
+
       this.state = {
         email: "",
         formSubmitted: false,
         theme: lightTheme,
+        verb: 'Announcing',
+        noun: 'Gradshow',
         map: {
           dark: {
             width: 800,
@@ -185,6 +188,10 @@ export default class IntroCSS extends React.Component {
   };
 
   handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
+  handleStatement = (verb, noun) => this.setState({ verb, noun });
+
+  resetStatement = () => this.setState({ verb: "Announcing", noun: "Gradshow" });
 
   updateMapData = (lat, long, zoom) => this.setState( prevState => ({
     map: {
@@ -259,22 +266,24 @@ export default class IntroCSS extends React.Component {
       <ThemeProvider theme={this.state.theme}>
         <Container>
           <InnerContainer>
-            <Statement/>
+            <Statement verb={this.state.verb} noun={this.state.noun}/>
 
             <Grid onToggleTheme={this.toggleTheme}>
 
-              <GridBlock rowStart={0} rowEnd={3} colStart={0} colEnd={4} wAdjust={-3} pad>
+              <GridBlock rowStart={0} rowEnd={3} colStart={0} colEnd={4} wAdjust={-3} pad onMouseEnter={() => this.handleStatement(" ", " ")} onMouseLeave={() => this.resetStatement()}>
                 <H2>
                   Graduate Design Show by<br/>
                   York University/Sheridan College
                 </H2>
               </GridBlock>
 
-              <GridBlock rowStart={3} rowEnd={5} colStart={0} colEnd={2} mColEnd={4} wAdjust={-1} mWAjust={1} pad>
+              <GridBlock rowStart={3} rowEnd={5} colStart={0} colEnd={2} mColEnd={4} wAdjust={-1} mWAjust={1} pad  onMouseEnter={() => this.handleStatement("About", "Graduates")} onMouseLeave={() => this.resetStatement()}>
                 <P>Adapt to change and become the future. The Next Graduate Design Show brought to you by York/Sheridan Design is an encapsulation of the milestones by the students within the past four years. Bringing together the students, industry and the public, this showcase is an opportunity to celebrate our graduating class and highlight our growth and ambition, with no foreseeable end.</P>
               </GridBlock>
 
               <GridTimer
+                onMouseEnter={() => this.handleStatement("Until", "Gradshow")}
+                onMouseLeave={() => this.resetStatement()}
                 rowStart={3}
                 rowEnd={5}
                 colStart={4}
@@ -283,24 +292,36 @@ export default class IntroCSS extends React.Component {
                 vertical
                 countdownDate = "2018-04-11 08:00" />
 
-              <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
+              <ContentPreview
+                onMouseEnter={() => this.handleStatement("Until", "Experience")}
+                onMouseLeave={() => this.resetStatement()}
+                rowStart={5}
+                rowEnd={6}
+                colStart={0}
+                colEnd={6}
+                wAdjust={1}
+              />
 
               <form onSubmit={this.handleSubmit}>
                 <FooterContainer rowStart={6} rowEnd={7} colStart={0} colEnd={2} wAdjust={1}>
 
                     <Map
+                      onMouseEnter={() => this.handleStatement("Find", "Gradshow")}
+                      onMouseLeave={() => this.resetStatement()}
                       displayMap={!this.state.theme.dark}
                       onViewportChange={this.updateMapData}
                       viewport={this.state.map.light}
                     />
 
                     <Map
+                      onMouseEnter={() => this.handleStatement("Find", "Gradshow")}
+                      onMouseLeave={() => this.resetStatement()}
                       displayMap={this.state.theme.dark}
                       onViewportChange={this.updateMapData}
                       viewport={this.state.map.dark}
                     />
 
-                  <EmailContainer>
+                  <EmailContainer onMouseEnter={() => this.handleStatement("Get", "Updates")} onMouseLeave={() => this.resetStatement()}>
                     <EmailInput onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email…"/>
                   </EmailContainer>
 
@@ -309,7 +330,7 @@ export default class IntroCSS extends React.Component {
 
                 <FooterContainer rowStart={6} rowEnd={7} colStart={2} colEnd={6} wAdjust={3}>
 
-                  <FooterInnerContainer>
+                  <FooterInnerContainer onMouseEnter={() => this.handleStatement("Find", "Gradshow")} onMouseLeave={() => this.resetStatement()}>
                     <H2>
                       April 11—13, 2018 <br/>
                       Gladstone Hotel <br/>
@@ -319,11 +340,11 @@ export default class IntroCSS extends React.Component {
 
                   <SocialContainer>
 
-                    <EmailButton disabled={this.state.formSubmitted} type="submit">
+                    <EmailButton disabled={this.state.formSubmitted} type="submit"  onMouseEnter={() => this.handleStatement("Get", "Updates")} onMouseLeave={() => this.resetStatement()}>
                       {this.state.formSubmitted ? 'We\'ll Update You ✔' : 'Get Updates'}
                     </EmailButton>
 
-                    <Instagram />
+                    <Instagram onMouseEnter={() => this.handleStatement("Follow", "Instagram")} onMouseLeave={() => this.resetStatement()}/>
 
                   </SocialContainer>
 
