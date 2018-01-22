@@ -27,9 +27,6 @@ const StatementContainer = styled.div`
     border-bottom: 1px solid ${props => props.theme.fg};
 
 
-    @media not all and (min-resolution:.001dpcm) { @media {
-      height: calc(93vh - ${spacing.padding.bigger});
-    }}
   }
 
 `
