@@ -27,15 +27,14 @@ const TimerNumber = styled.div`
 
 const Hide = styled.span`
   opacity: 0;
-  font-size: 1.5rem;
 `
 
 const ColonWrapper = styled.span`
 `
 
-function Colon() {
+function Colon(props) {
   return (
-    <ColonWrapper><Hide>:</Hide>:<Hide>:</Hide></ColonWrapper>
+    <ColonWrapper><Hide>&thinsp;&thinsp;{!props.vertical && <span>&thinsp;</span>}</Hide>:<Hide>&thinsp;{props.vertical && <span>&thinsp;</span>}</Hide></ColonWrapper>
   )
 }
 
@@ -120,16 +119,16 @@ export default class Timer extends React.Component {
 		return (
 			<TimerContainer vertical={this.props.vertical}>
         {this.state.timeRemaining.months && (
-					<TimerNumber vertical={this.props.vertical}> <p>{this.state.timeRemaining.months}<Colon/></p>  </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}><p>{this.state.timeRemaining.months}<Colon vertical={this.props.vertical}/></p></TimerNumber>
         )}
 				{this.state.timeRemaining.days && (
-					<TimerNumber vertical={this.props.vertical}> <p>{this.state.timeRemaining.days}<Colon/></p>  </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}><p>{this.state.timeRemaining.days}<Colon vertical={this.props.vertical}/></p></TimerNumber>
 				)}
 				{this.state.timeRemaining.h && (
-					<TimerNumber vertical={this.props.vertical}> <p>{this.state.timeRemaining.h}<Colon/></p>  </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}><p>{this.state.timeRemaining.h}<Colon vertical={this.props.vertical}/></p></TimerNumber>
 				)}
 				{this.state.timeRemaining.m && (
-					<TimerNumber vertical={this.props.vertical}><p>{this.state.timeRemaining.m}<Colon/></p>  </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}><p>{this.state.timeRemaining.m}<Colon vertical={this.props.vertical}/></p></TimerNumber>
 				)}
 				{this.state.timeRemaining.s && (
 					<TimerNumber vertical={this.props.vertical}><p>{this.state.timeRemaining.s}</p> </TimerNumber>

@@ -382,7 +382,7 @@ export default class IntroCSS extends React.Component {
 
 export const query = graphql`
   query ImageQuery {
-    file(relativePath: { eq: "assets/images/the-next-star.png" }) {
+    file(relativePath: { eq: "assets/images/the-next-star-yellow.png" }) {
       childImageSharp {
         sizes(maxWidth: 2000) {
           ...GatsbyImageSharpSizes_withWebp_tracedSVG
