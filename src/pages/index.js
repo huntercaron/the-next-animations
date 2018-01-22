@@ -148,33 +148,44 @@ const encode = (data) => {
 // page component
 export default class IntroCSS extends React.Component {
   constructor(props) {
-      super(props);
+    super(props);
 
-      this.state = {
-        email: "",
-        formSubmitted: false,
-        theme: lightTheme,
-        verb: 'Announcing',
-        noun: 'Gradshow',
-        map: {
-          dark: {
-            width: 800,
-            height: 600,
-            latitude: 43.638880,
-            longitude: -79.434236,
-            zoom: 15,
-            mapStyle: 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye',
-          },
-          light: {
-            width: 800,
-            height: 600,
-            latitude: 43.638880,
-            longitude: -79.434236,
-            zoom: 15,
-            mapStyle: 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3',
-          }
+    this.state = {
+      email: "",
+      formSubmitted: false,
+      theme: lightTheme,
+      verb: 'Announcing',
+      noun: 'Gradshow',
+      hover: false,
+      map: {
+        dark: {
+          width: 800,
+          height: 600,
+          latitude: 43.638880,
+          longitude: -79.434236,
+          zoom: 15,
+          mapStyle: 'mapbox://styles/zilindeng/cjcmddh221baf2rmv7i700vye',
+        },
+        light: {
+          width: 800,
+          height: 600,
+          latitude: 43.638880,
+          longitude: -79.434236,
+          zoom: 15,
+          mapStyle: 'mapbox://styles/zilindeng/cjcjdmhoqa0d72sqj8fw5xvo3',
         }
-      };
+      }
+    };
+
+    this.turnOnHovers();
+  }
+
+  turnOnHovers = () => {
+    setTimeout(() => {
+      this.setState({
+        hover: true
+      })
+    }, 2500);
   }
 
   handleSubmit = (e) => {
@@ -193,7 +204,10 @@ export default class IntroCSS extends React.Component {
 
   handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
-  handleStatement = (verb, noun) => this.setState({ verb, noun });
+  handleStatement = (verb, noun) => {
+    if (this.state.hover)
+      this.setState({ verb, noun });
+  }
 
   resetStatement = () => this.setState({ verb: "Announcing", noun: "Gradshow" });
 
@@ -272,7 +286,7 @@ export default class IntroCSS extends React.Component {
           <InnerContainer>
             <Statement verb={this.state.verb} noun={this.state.noun} imageSizes={this.props.data.file.childImageSharp.sizes}/>
 
-            <Grid onToggleTheme={this.toggleTheme}>
+            <Grid onToggleTheme={this.toggleTheme} hoverOn={this.state.hover}>
 
               <GridBlock rowStart={0} rowEnd={3} colStart={0} colEnd={4} wAdjust={-3} pad onMouseEnter={() => this.handleStatement(" ", " ")} onMouseLeave={() => this.resetStatement()}>
                 <H2>

@@ -67,7 +67,7 @@ const ImageContainer = styled.div`
   -ms-user-select: none;
   user-select: none;
 
-  animation: ${animations.show} 1s 2s ease-in-out forwards;
+  animation: ${animations.show} 0s 2.5s ease-in-out forwards;
 
   .image {
     transition: 100ms ease-out;

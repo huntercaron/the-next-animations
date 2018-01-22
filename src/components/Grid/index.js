@@ -45,18 +45,18 @@ const Cell = styled.div`
 
 
   &:hover {
-    background-color: ${props => props.theme.fg};
+    background-color: ${props => props.hoverOn ? props.theme.fg : "none"};
     div {
-      background-color: ${props => props.theme.fg};
+      background-color: ${props => props.hoverOn ? props.theme.fg : "none"};
     }
   }
 
   @media (hover:none), (hover:on-demand) {
     &:hover {
-      background-color: ${props => props.theme.bg};
+      background-color: ${props => props.theme.bg };
 
       div {
-        background-color: ${props => props.theme.bg};
+        background-color: ${props => props.theme.bg };
       }
     }
   }
@@ -71,7 +71,7 @@ function Cells(props) {
 
   for (let col of grid.columns) {
     cellColumns.push(
-      <Cell onClick={props.onToggleTheme} key={col} width={col}>
+      <Cell hoverOn={props.hoverOn} onClick={props.onToggleTheme} key={col} width={col}>
         {(col == 5) &&
           <InnerCell/>
         }
@@ -95,7 +95,7 @@ function Cells(props) {
 export default function Grid(props) {
   return (
     <Container>
-      <Cells onToggleTheme={props.onToggleTheme}/>
+      <Cells hoverOn={props.hoverOn} onToggleTheme={props.onToggleTheme}/>
       {props.children}
     </Container>
   )
