@@ -1,2 +1,5 @@
 # Redirect domain aliases to primary domain
 http://thenext.website/* http://announcing.thenext.website/:splat 301!
+http://ysdn2018.com/* http://announcing.thenext.website/:splat 301!
+http://www.ysdn2018.com/* http://announcing.thenext.website/:splat 301!
+http://www.thenext.website/* http://announcing.thenext.website/:splat 301!
