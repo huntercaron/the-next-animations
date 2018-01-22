@@ -10,7 +10,7 @@ import { H2 } from '../Type'
 const ContentContainer = GridBlock.extend`
   overflow-x: hidden;
   border-right: none;
-  height: 100%;
+  margin-bottom: -15px;
 
   @media (max-width: ${breakpoints.mobile}) {
     border-right: 1px solid ${props => props.theme.fg};
@@ -77,8 +77,10 @@ const ProjectContainer = styled.div`
 const TimerContainer = styled.div`
   display: flex;
   width: 100%;
-  margin-top: 4rem;
+  height: 100%;
   justify-content: center;
+  align-items: center;
+  margin-top: -1.8rem;
 
   -moz-user-select: none;
   -webkit-user-select: none;

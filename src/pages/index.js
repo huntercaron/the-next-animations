@@ -297,6 +297,7 @@ export default class IntroCSS extends React.Component {
                 countdownDate = "2018-04-11 08:00" />
 
               <ContentPreview
+                hAdjust={30}
                 onMouseEnter={() => this.handleStatement("Until", "Experience")}
                 onMouseLeave={() => this.resetStatement()}
                 rowStart={5}

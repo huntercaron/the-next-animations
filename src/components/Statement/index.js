@@ -62,6 +62,10 @@ const ImageContainer = styled.div`
   padding-bottom: 13%;
   z-index: 0;
   visibility: hidden;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   animation: ${animations.show} 1s 2s ease-in-out forwards;
 
