@@ -51,7 +51,7 @@ const Cell = styled.div`
     }
   }
 
-  @media (hover:none), (hover:on-demand) {
+  ${'' /* @media (hover:none), (hover:on-demand) {
     &:hover {
       background-color: ${props => props.theme.bg };
 
@@ -59,7 +59,7 @@ const Cell = styled.div`
         background-color: ${props => props.theme.bg };
       }
     }
-  }
+  } */}
 `
 const InnerCell = styled.div`
   width: 140%;
