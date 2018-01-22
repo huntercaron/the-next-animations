@@ -72,16 +72,22 @@ const animations = {
   `,
   starScale: keyframes`
     0% {
-      width: 10%;
+      width: 30%;
     }
-    9.9% {
-      width: 20%;
+    20% {
+      width: 60%;
     }
-    50% {
-      width: 150%;
+    40% {
+      width: 120%;
+    }
+    60% {
+      width: 180%;
+    }
+    80% {
+      width: 240%;
     }
     100% {
-      width: 1000px;
+      width: 300%;
     }
   `
 };

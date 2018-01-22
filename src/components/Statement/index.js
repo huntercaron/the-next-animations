@@ -68,19 +68,22 @@ const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: unset;
+    max-width: none;
+    opacity: 0;
+    max-height: none;
   }
 
   .inner-image {
-    object-fit: none;
-    flex-grow: unset;
-    position: absolute;
+    max-width: none;
+    max-height: none;
+    position: absolute !important;
     flex-basis: fill;
     animation: ${animations.starScale};
     animation-duration: 1s;
     animation-direction: alternate;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
+    animation-timing-function: step-end;
   }
 `
 

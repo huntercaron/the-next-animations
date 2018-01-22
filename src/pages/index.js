@@ -365,7 +365,7 @@ export const query = graphql`
   query ImageQuery {
     file(relativePath: { eq: "assets/images/the-next-star.png" }) {
       childImageSharp {
-        sizes(maxWidth: 600) {
+        sizes(maxWidth: 1000) {
           ...GatsbyImageSharpSizes_withWebp_tracedSVG
         }
       }
