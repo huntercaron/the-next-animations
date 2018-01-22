@@ -280,6 +280,7 @@ export default class IntroCSS extends React.Component {
                 colStart={4}
                 colEnd={6}
                 wAdjust={5}
+                vertical
                 countdownDate = "2018-04-11 08:00" />
 
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />

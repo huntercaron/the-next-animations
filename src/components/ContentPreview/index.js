@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import GridBlock from '../GridBlock'
 import Timer from '../Timer'
 import moment from 'moment'
-import { grid, spacing, breakpoints } from '../../utils/constants.js'
+import { grid, spacing, breakpoints, type } from '../../utils/constants.js'
 import { H2 } from '../Type'
 
 // styled components
@@ -34,8 +34,32 @@ const ProjectContainer = styled.div`
   height: 100%;
   flex-shrink: 0;
   flex-grow: 0;
+  justify-content: space-between;
   border-right: 1px solid ${props => props.theme.fg};
   padding: ${ spacing.padding.normal };
+
+  p {
+    transition: 200ms ease-out;
+    opacity: 0;
+    line-height: 1;
+    margin-top: -1px;
+    margin-right: 4px;
+
+    ${'' /* font-size: ${type.smaller}; */}
+  }
+
+  h2 {
+    transition: 200ms ease-out;
+  }
+
+  &:hover {
+    p {
+      opacity: 1;
+    }
+    h2 {
+      opacity: 0;
+    }
+  }
 
   ${'' /* @media (max-width: 1209px) {
     width: calc(${grid.columns[0] + grid.columns[1]}% - 1px);
@@ -48,8 +72,13 @@ const ProjectContainer = styled.div`
   @media (max-width: 360px) {
     width: calc(${grid.columns[0] + grid.columns[1]}% - 2px);
   } */}
+`
 
-
+const TimerContainer = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 4rem;
+  justify-content: center;
 `
 
 const ProjectTitle = H2.extend`
@@ -120,7 +149,10 @@ function Project(props) {
   return(
     <ProjectContainer {...props}>
       <ProjectTitle {...props}>{props.title}</ProjectTitle>
-      <Timer endDate={moment("2018-04-11 08:00")}/>
+
+      <TimerContainer>
+        <Timer endDate={props.endDate}/>
+      </TimerContainer>
     </ProjectContainer>
   )
 }
@@ -181,17 +213,20 @@ export default class ContentPreview extends React.Component {
               innerRef={(project) => { this.project = project; }}
               disabled={true}
               title="?&thinsp;?&thinsp;?"
+              endDate={moment("2018-02-09 08:00")}
             />
 
             <Project
               disabled={true}
               title="?&thinsp;?&thinsp;?"
+              endDate={moment("2018-03-09 12:00")}
             />
 
             <Project
               disabled={true}
               title="?&thinsp;?&thinsp;?"
               extra={grid.columns[5] + grid.columns[4]}
+              endDate={moment("2018-03-27 08:00")}
             />
 
           </InnerContainer>

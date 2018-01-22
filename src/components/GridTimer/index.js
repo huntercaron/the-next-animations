@@ -5,6 +5,10 @@ import GridBlock from "../GridBlock";
 import Timer from "../Timer";
 
 const Container = GridBlock.extend`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TimerContainer = styled.div`
@@ -19,7 +23,7 @@ const TimerContainer = styled.div`
 export default function GridTimer(props) {
 	return (
 		<Container {...props}>
-			<Timer endDate={moment(props.countdownDate)} />
+			<Timer vertical={props.vertical} endDate={moment(props.countdownDate)} />
 		</Container>
 	);
 }

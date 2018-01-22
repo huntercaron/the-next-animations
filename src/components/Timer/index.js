@@ -8,17 +8,12 @@ const Container = GridBlock.extend`
 `;
 
 const TimerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  ${props => !props.vertical && 'display: flex;'};
 `
 
 const TimerNumber = styled.div`
-  width: 2.5rem;
-  writing-mode: vertical-lr;
+  ${props => props.vertical && 'width: 2.5rem;'};
+  ${props => props.vertical && 'writing-mode: vertical-lr;'};
   font-variant-numeric: tabular-nums;
   -moz-font-feature-settings: "tnum";
   -webkit-font-feature-settings: "tnum";
@@ -123,21 +118,21 @@ export default class Timer extends React.Component {
 
 	render() {
 		return (
-			<TimerContainer>
+			<TimerContainer vertical={this.props.vertical}>
         {this.state.timeRemaining.months && (
-					<TimerNumber> <p>{this.state.timeRemaining.months}<Colon/></p>  </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}> <p>{this.state.timeRemaining.months}<Colon/></p>  </TimerNumber>
         )}
 				{this.state.timeRemaining.days && (
-					<TimerNumber> <p>{this.state.timeRemaining.days}<Colon/></p>  </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}> <p>{this.state.timeRemaining.days}<Colon/></p>  </TimerNumber>
 				)}
 				{this.state.timeRemaining.h && (
-					<TimerNumber> <p>{this.state.timeRemaining.h}<Colon/></p>  </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}> <p>{this.state.timeRemaining.h}<Colon/></p>  </TimerNumber>
 				)}
 				{this.state.timeRemaining.m && (
-					<TimerNumber><p>{this.state.timeRemaining.m}<Colon/></p>  </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}><p>{this.state.timeRemaining.m}<Colon/></p>  </TimerNumber>
 				)}
 				{this.state.timeRemaining.s && (
-					<TimerNumber><p>{this.state.timeRemaining.s}</p> </TimerNumber>
+					<TimerNumber vertical={this.props.vertical}><p>{this.state.timeRemaining.s}</p> </TimerNumber>
 				)}
 			</TimerContainer>
 		);
