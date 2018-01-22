@@ -20,6 +20,7 @@ import NeueHaasGrotDispItalic_woff from "../assets/fonts/NeueHaasGrotDisp-56Ital
 import NeueHaasGrotDispItalic_woff2 from "../assets/fonts/NeueHaasGrotDisp-56Italic-Web.woff2"
 
 import facebookCard from "../assets/images/facebook_card.png"
+import twitterCard from "../assets/images/twitter_card.png"
 
 /*
   Layout File
@@ -39,15 +40,20 @@ const Container = styled.div`
 const TemplateWrapper = ({ children }) => (
   <Container>
     <Helmet
-      title="Announcing The Next Gradshow"
+      title="THE NEXT"
       meta={[
-        { name: 'description', content: 'Graduate Showcase of York University/Sheridan College Joint Program in Design' },
+        { name: 'description', content: 'Graduate Design Show byYork University/Sheridan College' },
         { name: 'keywords', content: 'York University, Sheridan College, ysdn, design, york, sheridan, the next, the next gradshow' },
         { name: 'author', content: 'York University/Sheridan College Joint Program in Design' },
         { name: 'og:url', content: 'http://announcing.thenext.website' },
         { name: 'og:type', content: 'website' },
-        { name: 'og:description', content: 'Graduate Showcase of York University/Sheridan College Joint Program in Design' },
-        { property: 'og:image', content: 'http://announcing.thenext.website' + facebookCard }
+        { name: 'og:description', content: 'Graduate Design Show by York University/Sheridan College' },
+        { property: 'og:image', content: 'http://announcing.thenext.website' + facebookCard },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'THE NEXT' },
+        { name: 'twitter:description', content: 'Graduate Design Show byYork University/Sheridan College' },
+        { name: 'twitter:image', content: 'http://announcing.thenext.website' + twitterCard },
+        { name: 'twitter:image:alt', content: 'THE NEXT' },
       ]}
     />
 
