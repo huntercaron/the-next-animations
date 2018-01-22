@@ -55,7 +55,7 @@ const Cell = styled.div`
 
 `
 const InnerCell = styled.div`
-  width: 120%;
+  width: 123%;
   height: 100%;
 `
 

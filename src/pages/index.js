@@ -280,7 +280,7 @@ export default class IntroCSS extends React.Component {
                 colStart={4}
                 colEnd={6}
                 wAdjust={5}
-                countdownDate = "2018-04-11 8:00" />
+                countdownDate = "2018-04-11 08:00" />
 
               <ContentPreview rowStart={5} rowEnd={6} colStart={0} colEnd={6} wAdjust={1} />
 
@@ -288,13 +288,13 @@ export default class IntroCSS extends React.Component {
                 <FooterContainer rowStart={6} rowEnd={7} colStart={0} colEnd={2} wAdjust={1}>
 
                     <Map
-                      display={!this.state.theme.dark}
+                      displayMap={!this.state.theme.dark}
                       onViewportChange={this.updateMapData}
                       viewport={this.state.map.light}
                     />
 
                     <Map
-                      display={this.state.theme.dark}
+                      displayMap={this.state.theme.dark}
                       onViewportChange={this.updateMapData}
                       viewport={this.state.map.dark}
                     />

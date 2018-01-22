@@ -18,7 +18,7 @@ const Container = styled.div`
   height: 100%;
   overflow: hidden;
   animation: ${animations.fadeIn} 0.3s 0s ease-in-out forwards;
-  z-index: ${props => props.display ? "1" : "0"};
+  z-index: ${props => props.displayMap ? "1" : "0"};
 `
 
 const Text = styled.p`
@@ -38,7 +38,7 @@ const InnerContainer = styled.div`
   right: 0;
 
   div {
-    opacity: ${props => props.display ? "1" : "0"};
+    opacity: ${props => props.displayMap ? "1" : "0"};
   }
 `
 
@@ -46,8 +46,8 @@ const InnerContainer = styled.div`
 export default class Map extends React.Component {
   render() {
     return (
-      <Container display={this.props.display}>
-        <InnerContainer display={this.props.display}>
+      <Container displayMap={this.props.displayMap}>
+        <InnerContainer displayMap={this.props.displayMap}>
           {(process.env.MAP === 'true') &&
             <ReactMapGL
               {...this.props.viewport}

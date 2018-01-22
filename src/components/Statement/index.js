@@ -28,7 +28,7 @@ const StatementContainer = styled.div`
 
 
     @media not all and (min-resolution:.001dpcm) { @media {
-      height: calc(85vh - ${spacing.padding.bigger});
+      height: calc(86vh - ${spacing.padding.bigger});
     }}
   }
 `

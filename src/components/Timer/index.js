@@ -87,18 +87,11 @@ export default class Timer extends React.Component {
 		var duration = moment.duration(end.diff(now));
 
 		if (duration.asSeconds() >= 0) {
-			if (Math.floor(duration.asMonths()) > 0) {
-				if (Math.floor(duration.asMonths()) < 10) {
-					temp.months = "0" + Math.floor(duration.asMonths());
-				} else {
-					temp.months = Math.floor(duration.asMonths());
-				}
-			}
 			if (Math.floor(duration.asDays()) > 0) {
 				if (Math.floor(duration.days()) < 10) {
-					temp.days = "0" + Math.floor(duration.days());
+					temp.days = "0" + Math.floor(duration.asDays());
 				} else {
-					temp.days = Math.floor(duration.days());
+					temp.days = Math.floor(duration.asDays());
 				}
 			}
 			if (Math.floor(duration.asHours()) > 0) {

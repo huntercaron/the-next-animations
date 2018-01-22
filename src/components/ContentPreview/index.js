@@ -18,7 +18,6 @@ const Container = GridBlock.extend`
 `
 
 const InnerContainer = styled.div`
-  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -56,14 +55,30 @@ const ProjectTitle = H2.extend`
 `
 
 const ArrowContainer = styled.div`
-  width: calc(${grid.columns[0] + grid.columns[1]}% - 1px);
+  background-color: ${props => props.theme.bg};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 100%;
-  border-left: 1px solid ${props => props.theme.fg};
-  position: absolute;
-  background-color: pink;
-  right: 0;
-  top: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${props => props.theme.fg};
+    color: ${props => props.theme.bg};
+  }
 `
+
+const ArrowGridContainer = GridBlock.extend`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const ArrowListContainer = styled.div`
+
+`
+
 
 function Project(props) {
   return(
@@ -75,36 +90,48 @@ function Project(props) {
 
 function NavArrow(props) {
   return(
-    <ArrowContainer>
-
+    <ArrowContainer {...props}>
+      {props.left ? <p>&larr;</p> : <p>&rarr;</p>}
     </ArrowContainer>
   )
 }
+
 
 // component
 export default class ContentPreview extends React.Component {
   render() {
     return (
-      <Container {...this.props}>
-        <InnerContainer>
-          <Project
-            disabled={true}
-            title="?&thinsp;?&thinsp;?"
-          />
+      <div>
+        <ArrowListContainer>
+          <NavArrow left />
+        </ArrowListContainer>
 
-          <Project
-            disabled={true}
-            title="?&thinsp;?&thinsp;?"
-          />
+        <Container {...this.props}>
+          <InnerContainer>
+            <Project
+              disabled={true}
+              title="?&thinsp;?&thinsp;?"
+            />
 
-          <Project
-            disabled={true}
-            title="?&thinsp;?&thinsp;?"
-          />
+            <Project
+              disabled={true}
+              title="?&thinsp;?&thinsp;?"
+            />
+
+            <Project
+              disabled={true}
+              title="?&thinsp;?&thinsp;?"
+            />
 
 
-        </InnerContainer>
-      </Container>
+
+          </InnerContainer>
+        </Container>
+
+        <ArrowGridContainer rowStart={5} rowEnd={6} colStart={4} colEnd={6} wAdjust={5}>
+          <NavArrow />
+        </ArrowGridContainer>
+      </div>
     )
   }
 }
