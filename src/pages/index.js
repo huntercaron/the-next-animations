@@ -266,7 +266,7 @@ export default class IntroCSS extends React.Component {
       <ThemeProvider theme={this.state.theme}>
         <Container>
           <InnerContainer>
-            <Statement verb={this.state.verb} noun={this.state.noun}/>
+            <Statement verb={this.state.verb} noun={this.state.noun} imageSizes={this.props.data.file.childImageSharp.sizes}/>
 
             <Grid onToggleTheme={this.toggleTheme}>
 
@@ -360,3 +360,15 @@ export default class IntroCSS extends React.Component {
     )
   }
 }
+
+export const query = graphql`
+  query ImageQuery {
+    file(relativePath: { eq: "assets/images/the-next-star.png" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes_withWebp_tracedSVG
+        }
+      }
+    }
+  }
+`;

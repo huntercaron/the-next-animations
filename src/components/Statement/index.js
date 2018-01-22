@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { grid, spacing, animations, breakpoints } from '../../utils/constants.js'
+import Img from 'gatsby-image'
 
 // styled components
 const StatementContainer = styled.div`
@@ -18,6 +19,10 @@ const StatementContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &:hover .image {
+    opacity: 1;
+  }
 
   @media (max-width: ${breakpoints.mobile}) {
     border-left: 1px solid ${props => props.theme.fg};
@@ -46,6 +51,39 @@ const StatementText = styled.h1`
   }
 `
 
+const ImageContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 8%;
+  z-index: 3;
+
+  .image {
+    transition: 100ms ease-out;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: unset;
+  }
+
+  .inner-image {
+    object-fit: none;
+    flex-grow: unset;
+    position: absolute;
+    flex-basis: fill;
+    animation: ${animations.starScale};
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+`
+
 const TheNext = styled.h1`
   position: absolute;
   text-transform: uppercase;
@@ -70,6 +108,11 @@ const TheNext = styled.h1`
 export default function Statement(props) {
   return (
     <StatementContainer>
+        <ImageContainer>
+          <Img sizes={props.imageSizes} outerWrapperClassName='image' className="inner-image"/>
+        </ImageContainer>
+
+
         <StatementText>
           {props.verb || "Announcing"}
         </StatementText>

@@ -79,6 +79,11 @@ const TimerContainer = styled.div`
   width: 100%;
   margin-top: 4rem;
   justify-content: center;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 
 const ProjectTitle = H2.extend`
@@ -144,6 +149,12 @@ const Container = styled.div`
   align-items: center;
 `
 
+Math.easeInOutQuad = function (t, b, c, d) {
+  t /= d/2;
+	if (t < 1) return c/2*t*t + b;
+	t--;
+	return -c/2 * (t*(t-2) - 1) + b;
+};
 
 function Project(props) {
   return(
@@ -179,6 +190,24 @@ export default class ContentPreview extends React.Component {
     })
   }
 
+  scrollTo = (element, to, duration) =>  {
+      var start = element.scrollLeft,
+          change = to - start,
+          currentTime = 0,
+          increment = 20;
+
+      var animateScroll = function(){
+          currentTime += increment;
+          var val = Math.easeInOutQuad(currentTime, start, change, duration);
+          element.scrollLeft = val;
+          if(currentTime < duration) {
+              setTimeout(animateScroll, increment);
+          }
+      };
+      animateScroll();
+  }
+
+
   onComponentDidMount() {
     this.setState({
       scroll: this.hScroll.children[0].scrollLeft,
@@ -190,10 +219,11 @@ export default class ContentPreview extends React.Component {
   handleNavArrows = (direction) => {
     switch (direction) {
       case 'FORWARDS':
-        this.hScroll.children[0].scrollLeft = this.hScroll.children[0].scrollLeft + this.project.offsetWidth - this.arrow.offsetWidth + 1;
+        // this.hScroll.children[0].scrollLeft = this.hScroll.children[0].scrollLeft + this.project.offsetWidth - this.arrow.offsetWidth + 1;
+        this.scrollTo(this.hScroll.children[0], this.hScroll.children[0].scrollLeft + this.project.offsetWidth - this.arrow.offsetWidth + 1, 200);
         break;
       case 'BACKWARDS':
-      this.hScroll.children[0].scrollLeft = this.hScroll.children[0].scrollLeft - this.project.offsetWidth - this.arrow.offsetWidth;
+        this.scrollTo(this.hScroll.children[0], this.hScroll.children[0].scrollLeft - this.project.offsetWidth + this.arrow.offsetWidth - 20, 200);
         break;
     }
   }

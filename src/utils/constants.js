@@ -69,6 +69,20 @@ const animations = {
     to {
       height: 200px;
     }
+  `,
+  starScale: keyframes`
+    0% {
+      width: 10%;
+    }
+    9.9% {
+      width: 20%;
+    }
+    50% {
+      width: 150%;
+    }
+    100% {
+      width: 1000px;
+    }
   `
 };
 
