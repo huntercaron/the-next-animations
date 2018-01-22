@@ -6,11 +6,10 @@ import { grid, spacing, breakpoints } from '../../utils/constants.js'
 import { H2 } from '../Type'
 
 // styled components
-const Container = GridBlock.extend`
+const ContentContainer = GridBlock.extend`
   overflow-x: hidden;
-  height: 100%;
-  width: 100%;
   border-right: none;
+  height: 100%;
 
   @media (max-width: ${breakpoints.mobile}) {
     border-right: 1px solid ${props => props.theme.fg};
@@ -75,8 +74,31 @@ const ArrowGridContainer = GridBlock.extend`
   align-items: center;
 `
 
-const ArrowListContainer = styled.div`
+const ArrowGridContainerLeft = GridBlock.extend`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 0;
+  border-right: 1px solid ${props => props.theme.fg};
 
+  left: 2px;
+  width: ${grid.columns[5] + grid.columns[4]};
+  z-index: 2;
+`
+
+// const ArrowListContainer = styled.div`
+//   position: absolute;
+//   height: 100%;
+//   display: flex;
+//   background-color: pink;
+//   z-index: 1;
+//   width: ${grid.columns[5] + grid.columns[4]};
+// `
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 
@@ -99,14 +121,20 @@ function NavArrow(props) {
 
 // component
 export default class ContentPreview extends React.Component {
+  handleScroll = (e) => {
+
+  }
+
   render() {
     return (
-      <div>
-        <ArrowListContainer>
-          <NavArrow left />
-        </ArrowListContainer>
+      <Container>
+        <ArrowGridContainerLeft rowStart={5} rowEnd={6} colStart={4} colEnd={6} wAdjust={5}>
+          <NavArrow left/>
+        </ArrowGridContainerLeft>
 
-        <Container {...this.props}>
+
+        <ContentContainer {...this.props} onScroll={this.handleScroll}>
+
           <InnerContainer>
             <Project
               disabled={true}
@@ -123,15 +151,13 @@ export default class ContentPreview extends React.Component {
               title="?&thinsp;?&thinsp;?"
             />
 
-
-
           </InnerContainer>
-        </Container>
+        </ContentContainer>
 
         <ArrowGridContainer rowStart={5} rowEnd={6} colStart={4} colEnd={6} wAdjust={5}>
           <NavArrow />
         </ArrowGridContainer>
-      </div>
+      </Container>
     )
   }
 }
