@@ -1,0 +1,2 @@
+# Redirect domain aliases to primary domain
+http://thenext.website/* http://announcing.thenext.website/:splat 301!
