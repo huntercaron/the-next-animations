@@ -30,7 +30,7 @@ const InnerContainer = styled.div`
 
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
-    height: 1000px;
+    height: 1125px;
     margin-bottom: ${spacing.padding.smaller};
     border-left: none;
     border-right: none;
