@@ -342,7 +342,7 @@ export default class IntroCSS extends React.Component {
                     />
 
                   <EmailContainer onMouseEnter={() => this.handleStatement("Get", "Updates")} onMouseLeave={() => this.resetStatement()}>
-                    <EmailInput onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email…"/>
+                    <EmailInput minlength="4" onChange={this.handleChange} disabled={this.state.formSubmitted} type="email" name="email" placeholder="Enter Email…"/>
                   </EmailContainer>
 
                 </FooterContainer>
