@@ -46,7 +46,6 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'York University, Sheridan College, ysdn, design, york, sheridan, the next, the next gradshow' },
         { property: 'author', content: 'York University/Sheridan College Joint Program in Design' },
         { property: 'og:url', content: 'http://announcing.thenext.website' },
-        { property: 'og:type', content: 'website' },
         { property: 'og:title', content: 'THE NEXT' },
         { property: 'og:description', content: 'Graduate Design Show by York University/Sheridan College' },
         { property: 'og:image', content: 'http://announcing.thenext.website' + facebookCard },
