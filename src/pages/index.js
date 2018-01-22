@@ -73,6 +73,7 @@ const EmailButton = styled.button`
   background-color: ${props => props.theme.bg};
   font-size: ${ type.smaller };
   cursor: pointer;
+  flex: 2;
 
   &:hover {
     border-right: 1px solid ${props => props.theme.bg};

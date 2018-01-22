@@ -1,13 +1,15 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import instagramSvg from '../../assets/images/instagram.svg'
+import { breakpoints } from '../../utils/constants.js'
 
 // styled components
 const Container = styled.a`
   height: 70px;
   flex: 1;
   max-width: 73px;
-  padding: 0 10%;
+  width: 100%;
+  padding: 0 1rem;
 
   flex-shrink: 0;
   display: flex;
@@ -31,6 +33,11 @@ const Container = styled.a`
       stroke: ${props => props.theme.bg};
     }
   }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0 1rem;
+  }
+
 
 `
 
