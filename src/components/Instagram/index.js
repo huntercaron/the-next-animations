@@ -13,7 +13,7 @@ const Container = styled.a`
   border-left: 1px solid ${props => props.theme.bg};
   background-color: ${props => props.theme.bg};
   padding-bottom: 2px;
-  padding-right: 6px;
+
 
   #instagram {
     stroke: ${props => props.theme.fg};

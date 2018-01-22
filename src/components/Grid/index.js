@@ -43,9 +43,20 @@ const Cell = styled.div`
   border-left: 1px solid ${props => props.theme.fg};
   margin-right: -1px;
 
+
   &:hover {
     background-color: ${props => props.theme.fg};
+
+    div {
+      background-color: ${props => props.theme.fg};
+    }
   }
+
+
+`
+const InnerCell = styled.div`
+  width: 120%;
+  height: 100%;
 `
 
 function Cells(props) {
@@ -53,7 +64,11 @@ function Cells(props) {
 
   for (let col of grid.columns) {
     cellColumns.push(
-      <Cell onClick={props.onToggleTheme} key={col} width={col}/>
+      <Cell onClick={props.onToggleTheme} key={col} width={col}>
+        {(col == 5) &&
+          <InnerCell/>
+        }
+      </Cell>
     )
   }
 
