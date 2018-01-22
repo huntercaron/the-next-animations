@@ -7,7 +7,7 @@ const Container = styled.a`
   height: 70px;
   flex: 1;
   max-width: 73px;
-  padding: 0 0.9rem;
+  padding: 0 10%;
 
   flex-shrink: 0;
   display: flex;
