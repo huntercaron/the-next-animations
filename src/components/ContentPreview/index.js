@@ -250,7 +250,7 @@ export default class ContentPreview extends React.Component {
               innerRef={(project) => { this.project = project; }}
               disabled={true}
               title="?&thinsp;?&thinsp;?"
-              endDate={moment("2018-02-09 08:00")}
+              endDate={moment("2018-02-12 08:00")}
             />
 
             <Project
