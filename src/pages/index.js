@@ -320,6 +320,7 @@ export default class IntroCSS extends React.Component {
                 colStart={0}
                 colEnd={6}
                 wAdjust={1}
+                introductionImages={this.props.data.allImageSharp.edges}
               />
 
               <form onSubmit={this.handleSubmit}>
@@ -387,6 +388,16 @@ export const query = graphql`
       childImageSharp {
         sizes(maxWidth: 2000) {
           ...GatsbyImageSharpSizes_withWebp_tracedSVG
+        }
+      }
+    }
+
+    allImageSharp (filter: {id: { regex: "/students/"}}) {
+      edges {
+        node {
+          sizes(maxWidth: 2000, maxHeight: 1300, cropFocus: CENTER) {
+            ...GatsbyImageSharpSizes_withWebp
+          }
         }
       }
     }

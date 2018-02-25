@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import GridBlock from '../GridBlock'
 import Timer from '../Timer'
 import moment from 'moment'
-import { grid, spacing, breakpoints, type } from '../../utils/constants.js'
+import { grid, spacing, animations, breakpoints, type } from '../../utils/constants.js'
 import { H2 } from '../Type'
+import Img from 'gatsby-image'
 
 // styled components
 const ContentContainer = GridBlock.extend`
@@ -22,6 +23,8 @@ const InnerContainer = styled.div`
   height: 100%;
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
+
   padding-right: -${grid.columns[5] + grid.columns[4]};
   padding-bottom: 15px !important; /*This would hide the scroll bar of the bottom if there is one*/
 `
@@ -29,7 +32,8 @@ const InnerContainer = styled.div`
 const Text = styled.p`
 `
 
-const ProjectContainer = styled.div`
+const ProjectContainer = styled.a`
+  position: relative;
   width: calc(${props => grid.columns[0] + grid.columns[1] + (props.extra || 0)}% - 2px);
   height: 100%;
   flex-shrink: 0;
@@ -37,6 +41,8 @@ const ProjectContainer = styled.div`
   justify-content: space-between;
   border-right: 1px solid ${props => props.theme.fg};
   padding: ${ spacing.padding.normal };
+  color: ${props => props.theme.fg};
+  text-decoration: none;
 
   p {
     transition: 200ms ease-out;
@@ -156,6 +162,29 @@ const Container = styled.div`
   width: 100%;
 `
 
+const IntroImage = styled.div`
+  .image {
+    position: absolute !important;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+
+    opacity: 0;
+    animation: ${animations.fadeIn};
+    animation-duration: 0s;
+    animation-delay: ${props => props.index * 0.12}s;
+    /* animation-iteration-count: infinite; */
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-timing-function: step-end;
+
+
+`
+
 Math.easeInOutQuad = function (t, b, c, d) {
   t /= d/2;
 	if (t < 1) return c/2*t*t + b;
@@ -168,9 +197,14 @@ function Project(props) {
     <ProjectContainer {...props}>
       <ProjectTitle {...props}>{props.title}</ProjectTitle>
 
-      <TimerContainer>
-        <Timer endDate={props.endDate}/>
-      </TimerContainer>
+      {props.disabled && (
+        <TimerContainer>
+          <Timer endDate={props.endDate} />
+        </TimerContainer>
+      )}
+
+      {props.children}
+      
     </ProjectContainer>
   )
 }
@@ -247,11 +281,19 @@ export default class ContentPreview extends React.Component {
 
           <InnerContainer onScroll={this.handleScroll}>
             <Project
+              href="http://scrolling.thenext.website/"
+              target="_blank"
               innerRef={(project) => { this.project = project; }}
-              disabled={true}
-              title="?&thinsp;?&thinsp;?"
-              endDate={moment("2018-02-12 08:00")}
-            />
+              title="Introducing The Next Graduates"
+            >
+              
+              {/* {this.props.introductionImages.map( ({node: image}, i) => (
+                <IntroImage key={i} index={i}>
+                  <Img sizes={image.sizes} outerWrapperClassName='image' className="inner-image"/>
+                </IntroImage>
+              ))} */}
+            
+            </Project>
 
             <Project
               disabled={true}
